@@ -5,6 +5,9 @@ public class spawnObstacles : MonoBehaviour {
 
 	public GameObject rock_prefab;
 	public Transform world;
+
+	public float x_spawn_position = 3.205652f;
+	public float y_spawn_position = 0.67f;
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("spawnRock",5,10);
@@ -19,7 +22,7 @@ public class spawnObstacles : MonoBehaviour {
 		GameObject rock = Instantiate (rock_prefab) as GameObject;
 		rock.transform.parent = world;
 		//the position relative to the block that it should spawn for correct angle
-		rock.transform.position = new Vector2 (2.67f,0.6900005f);
+		rock.transform.position = new Vector2 (x_spawn_position,y_spawn_position);
 
 	}
 }
