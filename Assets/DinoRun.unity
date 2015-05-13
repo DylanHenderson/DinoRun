@@ -548,18 +548,6 @@ Prefab:
       propertyPath: planet
       value: 
       objectReference: {fileID: 251836086}
-    - target: {fileID: 11471688, guid: cf5075f2156ef1f4b9887be4078aa336, type: 2}
-      propertyPath: gravity
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6114612, guid: cf5075f2156ef1f4b9887be4078aa336, type: 2}
-      propertyPath: m_Size.x
-      value: .330000013
-      objectReference: {fileID: 0}
-    - target: {fileID: 6114612, guid: cf5075f2156ef1f4b9887be4078aa336, type: 2}
-      propertyPath: m_Offset.x
-      value: .0700000003
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf5075f2156ef1f4b9887be4078aa336, type: 2}
   m_IsPrefabParent: 0
