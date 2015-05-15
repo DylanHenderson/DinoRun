@@ -7,6 +7,7 @@ public class TouchScript : MonoBehaviour {
 
 	public Transform player;
 	public Transform planet;
+	public Transform pauseScreen;
 	public float speed =100;
 	public float minSwipeLength = 200f;
 	Vector2 firstPressPos;
@@ -52,17 +53,18 @@ public class TouchScript : MonoBehaviour {
 					player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
 					break;
 				case "Pause":
-
-					if(Time.timeScale == 0)
-					{
-						Time.timeScale = 1;
-					}else
-					{
-						Time.timeScale = 0;
-					}
-
+					Time.timeScale = 0;
+					pauseScreen.gameObject.SetActive(true);
 					break;
-				}
+				case "Play":
+					Time.timeScale = 1;
+					pauseScreen.gameObject.SetActive(false);
+					break;
+				case "Restart":
+					Time.timeScale = 1;
+					Application.LoadLevel("DinoRun");
+				break;
+			}
 			}
 		}
 			
