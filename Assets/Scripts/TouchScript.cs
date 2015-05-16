@@ -10,6 +10,8 @@ public class TouchScript : MonoBehaviour {
 	public Transform pauseScreen;
 	public float speed = 100f;
 	public float minSwipeLength = 200f;
+	public GameObject gameController;
+	Countdown gameCountdown;
 	Vector2 firstPressPos;
 	Vector2 secondPressPos;
 	Vector2 currentSwipe;
@@ -21,6 +23,8 @@ public class TouchScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		gameCountdown = gameController.GetComponent<Countdown>();
+		gameCountdown.startCountdown();
 	}
 	
 	// Update is called once per frame
@@ -61,6 +65,7 @@ public class TouchScript : MonoBehaviour {
 					break;
 				case "Play":
 					Time.timeScale = 1;
+					gameCountdown.startCountdown();
 					pauseScreen.gameObject.SetActive(false);
 					break;
 				case "Main Menu":
