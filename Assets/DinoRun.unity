@@ -338,6 +338,10 @@ Transform:
   - {fileID: 1869971345}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &747524429 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 125070, guid: ee864fc9d13d56f4090dc4d49854ca07, type: 2}
+  m_PrefabInternal: {fileID: 1799448945}
 --- !u!1 &1050350781
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +467,7 @@ GameObject:
   - 61: {fileID: 1327981226}
   - 50: {fileID: 1327981224}
   - 114: {fileID: 1327981227}
+  - 114: {fileID: 1327981225}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -540,6 +545,21 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!114 &1327981225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327981220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79e7ccb78d03fa45bc249f19d97496e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 300
+  gravity: 15
+  planet: {fileID: 251836086}
+  power_bar: {fileID: 747524429}
 --- !u!61 &1327981226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -559,7 +579,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1327981220}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19138e81b0b8174489b36d143c26ef27, type: 3}
   m_Name: 

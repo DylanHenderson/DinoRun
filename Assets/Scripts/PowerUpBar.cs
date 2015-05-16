@@ -6,6 +6,8 @@ public class PowerUpBar : MonoBehaviour {
 
 	Image myImage;
 	// Use this for initialization
+
+	private bool can_fly = false;
 	void Start () {
 		InvokeRepeating ("increasePower",0.5f,0.5f);
 		myImage = GetComponent<Image>();
@@ -17,13 +19,43 @@ public class PowerUpBar : MonoBehaviour {
 	}
 
 	void increasePower(){
-
-
-		if (myImage.fillAmount >= 360) {
+		if(myImage.fillAmount >= 0.05){
+			can_fly = true;
+		}
+		
+		if (myImage.fillAmount >= 1) {
 			//ready for powerup
-		} else {
+		} 
+		else {
 			myImage.fillAmount += 0.01f;
 		}
 
+	}
+
+	public void initiateDecrease(){
+		InvokeRepeating ("decreasePower",0.05f,0.05f);
+		CancelInvoke("increasePower");
+
+	}
+
+	public void cancelDecrease(){
+		CancelInvoke("decreasePower");
+		
+	}
+
+	public bool getcanFly(){
+		return can_fly;
+
+	}
+
+	public void decreasePower(){
+		if (myImage.fillAmount <= 0.01) {
+			can_fly = false;
+			CancelInvoke("decreasePower");
+			InvokeRepeating ("increasePower",0.5f,0.5f);
+		} else {
+			myImage.fillAmount -= 0.01f;
+		}
+		
 	}
 }
