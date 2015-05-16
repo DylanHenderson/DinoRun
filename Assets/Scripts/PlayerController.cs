@@ -6,11 +6,13 @@ public class PlayerController : MonoBehaviour {
 	private Animator animator;
 	private Rigidbody2D r2;
 	public Transform planet;
+	public Sprite jump;
+	public Sprite defaultSprite;
 
 	public float speed = 100;
 	public float gravity = 1;
 	private float worldSpeed = 0;
-	private bool grounded = false;
+	public bool grounded = false;
 
 	// Use this for initialization
 	void Start()
@@ -26,13 +28,16 @@ public class PlayerController : MonoBehaviour {
 		r2.AddForce((planet.position - transform.position).normalized * gravity);
 
 		// Jumping
-		if (Input.GetKeyDown ("space")) {
+		if (Input.GetKeyDown ("space") && grounded) {
 			r2.AddForce((planet.position - transform.position).normalized * speed *-1);
 		}
 
 		// Cancel animation while jumping
 		if(transform.position.y < 1.5f && !grounded) {
+
 			grounded = true;
+			animator.enabled = true;
+			transform.GetComponent<SpriteRenderer>().sprite = defaultSprite;
 		}else if(transform.position.y > 1.5f && grounded)
 		{
 			grounded = false;
@@ -49,6 +54,13 @@ public class PlayerController : MonoBehaviour {
 			// Set to 0 to make sure we dont continually update
 			worldSpeed = 0f;
 			animator.SetFloat ("Speed", 0f);
+
+			// If moving upwards
+			if(r2.velocity.y >= -10E-09)
+			{
+				animator.enabled = false;
+				transform.GetComponent<SpriteRenderer>().sprite = jump;
+			}
 		}
 	}
 

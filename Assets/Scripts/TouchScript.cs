@@ -50,7 +50,10 @@ public class TouchScript : MonoBehaviour {
 					firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 					break;
 				case "Tap Area":	
-					player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
+					if(player.GetComponent<PlayerController>().grounded)
+					{
+						player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
+					}
 					break;
 				case "Pause":
 					Time.timeScale = 0;
