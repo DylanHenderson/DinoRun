@@ -620,6 +620,7 @@ MonoBehaviour:
   fadeTexture: {fileID: 2800000, guid: 6d848f5fa86b9c347b0b361cd1bece2d, type: 3}
   fadeSpeed: .5
   drawDepth: -1000
+  alpha: 1
 --- !u!1 &1574137812
 GameObject:
   m_ObjectHideFlags: 0

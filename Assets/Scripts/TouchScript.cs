@@ -63,6 +63,10 @@ public class TouchScript : MonoBehaviour {
 					Time.timeScale = 1;
 					pauseScreen.gameObject.SetActive(false);
 					break;
+				case "Main Menu":
+					Time.timeScale = 1;
+					Application.LoadLevel("Menu");
+					break;
 				case "Menu Play":
 					Time.timeScale = 1;
 					Application.LoadLevel("DinoRun");
