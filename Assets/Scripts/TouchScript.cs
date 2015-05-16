@@ -8,7 +8,7 @@ public class TouchScript : MonoBehaviour {
 	public Transform player;
 	public Transform planet;
 	public Transform pauseScreen;
-	public float speed =100;
+	public float speed = 100f;
 	public float minSwipeLength = 200f;
 	Vector2 firstPressPos;
 	Vector2 secondPressPos;
