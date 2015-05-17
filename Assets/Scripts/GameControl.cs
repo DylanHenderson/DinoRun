@@ -34,27 +34,12 @@ public class GameControl : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.skin = skin;
-		skin.label.fontSize = 25;
+		skin.label.fontSize = 65;
 
 		// Check if game is not over, if so, display the score and the time left
 		if (!isGameOver)
 		{
-			if((int)score < 10)
-			{
-				middle = 745;
-			}else if((int)score < 100)
-			{
-				middle = 735;
-			}else if((int)score < 1000)
-			{
-				middle = 730;
-			}else if ((int)score > 1000)
-			{
-				skin.label.fontSize = 15;
-				middle = 725;
-			}
-
-			GUI.Label(new Rect(middle, 40, Screen.width / 6, Screen.height / 6), ((int)score).ToString());
+			GUI.Label(new Rect(Screen.width / 2, 70, Screen.width / 6, Screen.height / 6), ((int)score).ToString());
 		}
 		
 		// If game over, display game over menu with score
