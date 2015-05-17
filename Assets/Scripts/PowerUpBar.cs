@@ -19,8 +19,10 @@ public class PowerUpBar : MonoBehaviour {
 	}
 
 	void increasePower(){
-		if(myImage.fillAmount >= 0.05){
+		if (myImage.fillAmount >= 0.05) {
 			can_fly = true;
+		} else {
+			can_fly = false;
 		}
 		
 		if (myImage.fillAmount >= 1) {
@@ -39,7 +41,10 @@ public class PowerUpBar : MonoBehaviour {
 	}
 
 	public void cancelDecrease(){
+		print ("caneling");
 		CancelInvoke("decreasePower");
+		InvokeRepeating ("increasePower",0.5f,0.5f);
+
 		
 	}
 

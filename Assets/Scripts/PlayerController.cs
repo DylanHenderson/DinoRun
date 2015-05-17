@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			flying = false;
 			gravity = original_gravity;
-			pb.cancelDecrease();
+			//pb.cancelDecrease();
 			bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
 		}
 

@@ -64,7 +64,6 @@ public class ComputerJumpScript : MonoBehaviour {
 		} else {
 			flying = false;
 			gravity = original_gravity;
-			pb.cancelDecrease();
 			bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
 		}
 
@@ -78,10 +77,12 @@ public class ComputerJumpScript : MonoBehaviour {
 		}
 
 		if (Input.GetKeyUp ("x")) {
+			print ("key is up");
 			flying = false;
 			gravity = original_gravity;
 			pb.cancelDecrease();
 			bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
+
 			
 		}
 	}
