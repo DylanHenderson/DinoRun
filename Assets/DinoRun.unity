@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046a6e61c501c5a47b6897d2b4c96570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSpeed: 8
-  rotate_speed: 8
+  originalSpeed: 15
+  rotate_speed: 15
   time_to_increase: 20
   speed_increase: 1
   rotating: 1
@@ -521,7 +521,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484374, guid: 21deaee02770f9b4fa49badd26fea725, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 113322, guid: 21deaee02770f9b4fa49badd26fea725, type: 2}
       propertyPath: m_IsActive
@@ -1202,8 +1202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32021b4a48cf1f0458d80a939824d504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSpeed: 5
-  move_speed: 5
+  originalSpeed: 10
+  move_speed: 10
   time_to_increase: 10
   speed_increase: 1
   moving: 1
@@ -1449,7 +1449,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452724, guid: ee864fc9d13d56f4090dc4d49854ca07, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22452724, guid: ee864fc9d13d56f4090dc4d49854ca07, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1657,8 +1657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32021b4a48cf1f0458d80a939824d504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSpeed: 5
-  move_speed: 5
+  originalSpeed: 10
+  move_speed: 10
   time_to_increase: 10
   speed_increase: 1
   moving: 1
