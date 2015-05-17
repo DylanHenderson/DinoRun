@@ -158,8 +158,13 @@ public class PlayerController : MonoBehaviour {
 				{
 					animator.SetFloat ("Speed", 0f);
 					planet.GetComponent<Rotate>().rotating = false;
+					planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
+					
 					movingBackround1.GetComponent<MoveBackground>().moving = false;
+					movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
+					
 					movingBackround2.GetComponent<MoveBackground>().moving = false;
+					movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
 				}else if(collisionInfo.collider.name == "pit(Clone)")
 				{
 					// Diable collider
