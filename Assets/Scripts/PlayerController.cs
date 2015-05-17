@@ -3,8 +3,13 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+	public enum DinoType {Raptor, Triceratops};
 
+	public DinoType dinoType;
 	public Transform planet;
+	public Transform collidingObject;
+	public Transform movingBackround1;
+	public Transform movingBackround2;
 	public Sprite jump;
 	public Sprite defaultSprite;
 	public GameObject bird;
@@ -14,7 +19,6 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 100;
 	public float gravity = 1;
 	public bool grounded = false;
-
 
 	private Animator animator;
 	private Rigidbody2D r2;
@@ -71,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		// Cancel animation while jumping
-		if(transform.position.y < 1.5f && !grounded) {
+		if((transform.position.y < 1.5f && !grounded)) {
 
 			grounded = true;
 			animator.enabled = true;
@@ -82,7 +86,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		// Running Animation
-		if (grounded) {
+		if (grounded && collidingObject == null) {
 
 			worldSpeed = planet.GetComponent<Rotate> ().rotate_speed; 
 			worldSpeed = Normalize (worldSpeed);
@@ -100,6 +104,11 @@ public class PlayerController : MonoBehaviour {
 				transform.GetComponent<SpriteRenderer>().sprite = jump;
 			}
 		}
+	}
+
+	public bool isUsingPower()
+	{
+		return flying;
 	}
 
 	public void setPower()
@@ -128,5 +137,65 @@ public class PlayerController : MonoBehaviour {
 	float Normalize(float speed)
 	{
 		return (speed - 5f)/(20f - 5f);
+	}
+
+	void OnCollisionEnter2D(Collision2D collisionInfo)
+	{
+		if(collisionInfo.collider.name != "moving-Sphere")
+		{
+			collidingObject = collisionInfo.collider.transform;
+
+			// Jumping stuff
+			if(transform.position.y > 1.5f)
+			{
+				grounded = true;
+				animator.enabled = true;
+				transform.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+			}else{
+
+				// World speed stuff
+				if(collisionInfo.collider.name == "test-obstacle-rock(Clone)" || collisionInfo.collider.name == "tree(Clone)" )
+				{
+					animator.SetFloat ("Speed", 0f);
+					planet.GetComponent<Rotate>().rotating = false;
+					movingBackround1.GetComponent<MoveBackground>().moving = false;
+					movingBackround2.GetComponent<MoveBackground>().moving = false;
+				}
+			
+			}
+
+			float decreaseAmount;
+			
+			if(dinoType == DinoType.Raptor)
+			{
+				
+			}
+
+		}
+	}
+
+	void OnCollisionStay2D(Collision2D collisionInfo)
+	{
+		if(collisionInfo.collider.name == "test-obstacle-rock(Clone)" || collisionInfo.collider.name == "tree(Clone)")
+		{
+			animator.SetFloat ("Speed", 0f);
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D collisionInfo)
+	{
+		if(collisionInfo.collider.name == "test-obstacle-rock(Clone)" || collisionInfo.collider.name == "tree(Clone)" )
+		{
+			planet.GetComponent<Rotate>().rotating = true;
+			planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed;
+
+			movingBackround1.GetComponent<MoveBackground>().moving = true;
+			movingBackround1.GetComponent<MoveBackground>().move_speed = movingBackround1.GetComponent<MoveBackground>().originalSpeed;
+
+			movingBackround2.GetComponent<MoveBackground>().moving = true;
+			movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed;
+		}
+
+		collidingObject = null;
 	}
 }

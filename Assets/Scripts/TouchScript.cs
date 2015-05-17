@@ -16,6 +16,7 @@ public class TouchScript : MonoBehaviour {
 	Vector2 secondPressPos;
 	Vector2 currentSwipe;
 	public static Swipe swipeDirection;
+	private Vector3 originalPositon;
 
 	private RaycastHit hit;
 	private Ray ray;
@@ -25,6 +26,7 @@ public class TouchScript : MonoBehaviour {
 	void Start () {
 		gameCountdown = gameController.GetComponent<Countdown>();
 		gameCountdown.startCountdown();
+		originalPositon = player.position;
 	}
 	
 	// Update is called once per frame
@@ -59,7 +61,7 @@ public class TouchScript : MonoBehaviour {
 
 			if (Physics.Raycast (ray.origin, ray.direction, out hit)) {
 				switch (hit.collider.name) {
-				case "Swipe Area":
+				case "Tap Area":
 					
 					secondPressPos = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
 					currentSwipe = new Vector3 (secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
@@ -95,7 +97,7 @@ public class TouchScript : MonoBehaviour {
 				
 				
 				switch(hit.collider.name){
-				case "Swipe Area":
+				case "Tap Area":
 					
 					secondPressPos = new Vector2(touch.position.x, touch.position.y);
 					currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
@@ -123,14 +125,20 @@ public class TouchScript : MonoBehaviour {
 	void buttonTouch(string name)
 	{
 		switch(name){
-		case "Swipe Area":
-			firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-			break;
 		case "Tap Area":	
-			if(player.GetComponent<PlayerController>().grounded)
+
+			if(player.GetComponent<PlayerController>().isUsingPower())
+			{
+				player.GetComponent<PlayerController>().cancelPower();
+			}
+
+			if(player.GetComponent<PlayerController>().grounded || (player.position.y > originalPositon.y && player.GetComponent<PlayerController>().collidingObject != null))
 			{
 				player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
 			}
+
+			firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
 			break;
 		case "Pause":
 			Time.timeScale = 0;
@@ -165,7 +173,7 @@ public class TouchScript : MonoBehaviour {
 			// Swipe down
 		} else if (y < 0 && x > -0.5f && x < 0.5f) {
 			
-			player.GetComponent<PlayerController>().cancelPower();
+			//player.GetComponent<PlayerController>().cancelPower();
 			
 			// Swipe left
 		} else if (y < 0 && y > -0.5f && y < 0.5f) {

@@ -184,9 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046a6e61c501c5a47b6897d2b4c96570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 8
   rotate_speed: 8
   time_to_increase: 20
   speed_increase: 1
+  rotating: 1
 --- !u!212 &251836085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -762,7 +764,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19138e81b0b8174489b36d143c26ef27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dinoType: 0
   planet: {fileID: 251836086}
+  collidingObject: {fileID: 0}
+  movingBackround1: {fileID: 1574137817}
+  movingBackround2: {fileID: 1859067791}
   jump: {fileID: 21300000, guid: fe471e6fdfcebbd4fa2a864a5651ebe5, type: 3}
   defaultSprite: {fileID: 21300000, guid: 33ecc69652d034149a2623b1dc695291, type: 3}
   bird: {fileID: 1564405347}
@@ -785,7 +791,6 @@ GameObject:
   - 124: {fileID: 1333415863}
   - 81: {fileID: 1333415862}
   - 114: {fileID: 1333415867}
-  - 114: {fileID: 1333415869}
   - 82: {fileID: 1333415868}
   m_Layer: 0
   m_Name: Main Camera
@@ -943,17 +948,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &1333415869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1333415861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05264173d950a994485a75c624f3180c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1358615389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1038,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1392619277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.48999977, y: 0, z: .236000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 582359713}
@@ -1206,9 +1200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32021b4a48cf1f0458d80a939824d504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 5
   move_speed: 5
   time_to_increase: 10
   speed_increase: 1
+  moving: 1
   offset: 28
   target: {fileID: 2125520815}
   second_sky: {fileID: 1859067791}
@@ -1389,7 +1385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1684426814
 Transform:
   m_ObjectHideFlags: 0
@@ -1659,9 +1655,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32021b4a48cf1f0458d80a939824d504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 5
   move_speed: 5
   time_to_increase: 10
   speed_increase: 1
+  moving: 1
   offset: 28
   target: {fileID: 2125520815}
   second_sky: {fileID: 1574137817}
