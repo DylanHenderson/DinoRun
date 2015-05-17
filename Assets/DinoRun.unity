@@ -253,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rock_prefab: {fileID: 154132, guid: dc7d60985198ff04d8d0b6cb1169fa7c, type: 2}
   tree_prefab: {fileID: 167882, guid: 75704945c2bfa784f994fc0d0f8e4bf0, type: 2}
-  pit: {fileID: 167882, guid: 17a32f90778f39d4f9c26143ed3c0e19, type: 2}
+  pit: {fileID: 167882, guid: d74cbcd9bee20ca47ac1f3d7ab4bfe7a, type: 2}
   world: {fileID: 251836086}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017

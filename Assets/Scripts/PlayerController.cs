@@ -163,6 +163,7 @@ public class PlayerController : MonoBehaviour {
 				}else if(collisionInfo.collider.name == "pit(Clone)")
 				{
 					// Diable collider
+					grounded = false;
 					transform.GetComponent<BoxCollider2D>().enabled = false;
 				}
 			
