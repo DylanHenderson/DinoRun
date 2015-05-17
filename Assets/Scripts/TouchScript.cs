@@ -49,38 +49,7 @@ public class TouchScript : MonoBehaviour {
 
 			if(Physics.Raycast (ray.origin, ray.direction, out hit))
 			{
-				switch(hit.collider.name){
-				case "Swipe Area":
-					firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-					break;
-				case "Tap Area":	
-					if(player.GetComponent<PlayerController>().grounded)
-					{
-						player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
-					}
-					break;
-				case "Pause":
-					Time.timeScale = 0;
-					pauseScreen.gameObject.SetActive(true);
-					break;
-				case "Play":
-					Time.timeScale = 1;
-					gameCountdown.startCountdown();
-					pauseScreen.gameObject.SetActive(false);
-					break;
-				case "Main Menu":
-					Time.timeScale = 1;
-					Application.LoadLevel("Menu");
-					break;
-				case "Menu Play":
-					Time.timeScale = 1;
-					Application.LoadLevel("DinoRun");
-					break;
-				case "Restart":
-					Time.timeScale = 1;
-					Application.LoadLevel("DinoRun");
-				break;
-			}
+				buttonTouch(hit.collider.name);
 			}
 		}
 			
@@ -100,27 +69,10 @@ public class TouchScript : MonoBehaviour {
 						swipeDirection = Swipe.None;
 						return;
 					}
-					
+
 					currentSwipe.Normalize ();
-					
-					// Swipe up
-					if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) {
-						//swipeDirection = Swipe.Up;
-						Debug.Log ("Swipe Up");
-						// Swipe down
-					} else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) {
-						//swipeDirection = Swipe.Down;
-						Debug.Log ("Swipe Down");
-						// Swipe left
-					} else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) {
-						//swipeDirection = Swipe.Left;
-						Debug.Log ("Swipe Left");
-						// Swipe right
-					} else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) {
-						//swipeDirection = Swipe.Right;
-						
-						Debug.Log ("Swipe Right");
-					}
+
+					swipeAction(currentSwipe.x, currentSwipe.y);
 					
 					break;
 				}
@@ -136,26 +88,7 @@ public class TouchScript : MonoBehaviour {
 			ray = titleCamera.ScreenPointToRay (Input.touches [0].position);
 			
 			if (touch.phase == TouchPhase.Began && Physics.Raycast (ray.origin, ray.direction, out hit)) {
-				
-				switch(hit.collider.name){
-				case "Swipe Area":
-					firstPressPos = new Vector2(touch.position.x, touch.position.y);
-					break;
-				case "Tap Area":
-					player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
-					break;
-				case "Pause Button":
-
-					if(Time.timeScale == 0)
-					{
-						Time.timeScale = 1;
-					}else
-					{
-						Time.timeScale = 0;
-					}
-
-					break;
-				}
+				buttonTouch(hit.collider.name);
 			}
 			
 			if (touch.phase == TouchPhase.Ended  && Physics.Raycast (ray.origin, ray.direction, out hit)) {
@@ -175,24 +108,7 @@ public class TouchScript : MonoBehaviour {
 					
 					currentSwipe.Normalize();
 					
-					// Swipe up
-					if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) {
-						//swipeDirection = Swipe.Up;
-						Debug.Log ("Swipe Up");
-						// Swipe down
-					} else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) {
-						//swipeDirection = Swipe.Down;
-						Debug.Log ("Swipe Down");
-						// Swipe left
-					} else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) {
-						//swipeDirection = Swipe.Left;
-						Debug.Log ("Swipe Left");
-						// Swipe right
-					} else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) {
-						//swipeDirection = Swipe.Right;
-						
-						Debug.Log ("Swipe Right");
-					}
+					swipeAction(currentSwipe.x, currentSwipe.y);
 					
 					break;
 				}
@@ -200,6 +116,63 @@ public class TouchScript : MonoBehaviour {
 			}
 		} else if(swipeDirection != Swipe.None) {
 			swipeDirection = Swipe.None;   
+		}
+	}
+
+	
+	void buttonTouch(string name)
+	{
+		switch(name){
+		case "Swipe Area":
+			firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+			break;
+		case "Tap Area":	
+			if(player.GetComponent<PlayerController>().grounded)
+			{
+				player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
+			}
+			break;
+		case "Pause":
+			Time.timeScale = 0;
+			pauseScreen.gameObject.SetActive(true);
+			break;
+		case "Play":
+			Time.timeScale = 1;
+			gameCountdown.startCountdown();
+			pauseScreen.gameObject.SetActive(false);
+			break;
+		case "Main Menu":
+			Time.timeScale = 1;
+			Application.LoadLevel("Menu");
+			break;
+		case "Menu Play":
+			Time.timeScale = 1;
+			Application.LoadLevel("DinoRun");
+			break;
+		case "Restart":
+			Time.timeScale = 1;
+			Application.LoadLevel("DinoRun");
+			break;
+		}
+	}
+	
+	void swipeAction(float x, float y)
+	{
+		// Swipe up
+		if (y > 0 && x > -0.5f && x < 0.5f) {
+			player.GetComponent<PlayerController>().setPower();
+			
+			// Swipe down
+		} else if (y < 0 && x > -0.5f && x < 0.5f) {
+			
+			player.GetComponent<PlayerController>().cancelPower();
+			
+			// Swipe left
+		} else if (y < 0 && y > -0.5f && y < 0.5f) {
+			
+			// Swipe right
+		} else if (y > 0 && y > -0.5f && y < 0.5f) {
+			
 		}
 	}
 		

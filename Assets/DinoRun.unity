@@ -770,7 +770,7 @@ MonoBehaviour:
   start_point: {fileID: 1564405349}
   bird_speed: .200000003
   speed: 285
-  gravity: 9.5
+  gravity: 13
   grounded: 0
 --- !u!1 &1333415861
 GameObject:

@@ -70,26 +70,6 @@ public class PlayerController : MonoBehaviour {
 			bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
 		}
 
-		//initiate flying
-		if (Input.GetKeyDown ("x") && pb.getcanFly ()){
-			flying = true;
-			gravity = 0;
-			pb.initiateDecrease();
-			current_dino_x = gameObject.transform.position.x;
-			
-			
-		}
-
-		//no longer flying
-		if (Input.GetKeyUp ("x")) {
-			flying = false;
-			gravity = original_gravity;
-			pb.cancelDecrease();
-			bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
-			
-		}
-
-
 		// Cancel animation while jumping
 		if(transform.position.y < 1.5f && !grounded) {
 
@@ -122,6 +102,24 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	public void setPower()
+	{
+		if(pb.getcanFly ())
+		{
+			flying = true;
+			gravity = 0;
+			pb.initiateDecrease();
+			current_dino_x = gameObject.transform.position.x;
+		}
+	}
+
+	public void cancelPower()
+	{
+		flying = false;
+		gravity = original_gravity;
+		pb.cancelDecrease();
+		bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
+	}
 
 
 	/*
