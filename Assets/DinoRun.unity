@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rock_prefab: {fileID: 154132, guid: dc7d60985198ff04d8d0b6cb1169fa7c, type: 2}
   tree_prefab: {fileID: 167882, guid: 75704945c2bfa784f994fc0d0f8e4bf0, type: 2}
+  pit: {fileID: 167882, guid: 17a32f90778f39d4f9c26143ed3c0e19, type: 2}
   world: {fileID: 251836086}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
@@ -1086,7 +1087,8 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1809153502}
   player: {fileID: 1327981223}
   skin: {fileID: 11400000, guid: 9a248991f18c3ed4aa9c2932789e6452, type: 2}
-  deathPosition: -2.75399995
+  deathPositionX: -2.75399995
+  deathPositionY: .0469999984
   isGameOver: 0
 --- !u!4 &1486932400
 Transform:
@@ -1099,7 +1101,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!114 &1486932401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1369,7 +1371,7 @@ Transform:
   - {fileID: 2125520815}
   - {fileID: 1574137817}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1684426813
 GameObject:
   m_ObjectHideFlags: 0

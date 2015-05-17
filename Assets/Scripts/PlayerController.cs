@@ -160,6 +160,10 @@ public class PlayerController : MonoBehaviour {
 					planet.GetComponent<Rotate>().rotating = false;
 					movingBackround1.GetComponent<MoveBackground>().moving = false;
 					movingBackround2.GetComponent<MoveBackground>().moving = false;
+				}else if(collisionInfo.collider.name == "pit(Clone)")
+				{
+					// Diable collider
+					transform.GetComponent<BoxCollider2D>().enabled = false;
 				}
 			
 			}

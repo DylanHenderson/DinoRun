@@ -5,6 +5,7 @@ public class spawnObstacles : MonoBehaviour {
 
 	public GameObject rock_prefab;
 	public GameObject tree_prefab;
+	public GameObject pit;
 	public Transform world;
 
 	public float x_spawn_position = 3.205652f;
@@ -35,12 +36,14 @@ public class spawnObstacles : MonoBehaviour {
 		spawnChance = Random.Range (0, 2);
 
 		if (spawnChance == 1) {
-			obstacleChoice = Random.Range (0, 2);
+			obstacleChoice = Random.Range (0, 3);
 
-			if (obstacleChoice == 1){
-				spawnRock ();
+			if (obstacleChoice == 0){
+				Invoke("spawnRock",1);
+			}else if(obstacleChoice == 1){
+				Invoke("spawnRock",2);
 			}else{
-				spawnTree ();
+				Invoke("spawnPit",3);
 			}
 
 		}
@@ -49,12 +52,14 @@ public class spawnObstacles : MonoBehaviour {
 		spawnChance = Random.Range (0, 3);
 		
 		if (spawnChance == 1) {
-			obstacleChoice = Random.Range (0, 2);
+			obstacleChoice = Random.Range (0, 3);
 			
 			if (obstacleChoice == 1){
 				Invoke("spawnRock",1);
-			}else{
+			}else if  (obstacleChoice == 2){
 				Invoke("spawnTree",2);
+			}else{
+				Invoke("spawnPit",3);
 			}
 			
 		}
@@ -63,12 +68,14 @@ public class spawnObstacles : MonoBehaviour {
 		spawnChance = Random.Range (0, 4);
 		
 		if (spawnChance == 1) {
-			obstacleChoice = Random.Range (0, 2);
+			obstacleChoice = Random.Range (0, 3);
 			
 			if (obstacleChoice == 1){
-				Invoke("spawnRock",2);
+				Invoke("spawnRock",1);
+			}else if  (obstacleChoice == 2){
+				Invoke("spawnTree",2);
 			}else{
-				Invoke("spawnTree",4);
+				Invoke("spawnPit",3);
 			}
 			
 		}
@@ -92,6 +99,15 @@ public class spawnObstacles : MonoBehaviour {
 		tree.transform.parent = world;
 		//the position relative to the block that it should spawn for correct angle
 		tree.transform.position = new Vector2 (tree_prefab.transform.position.x,tree_prefab.transform.position.y);
+		
+	}
+
+	void spawnPit(){
+		GameObject pitObject = Instantiate (pit) as GameObject;
+		pitObject.transform.parent = world;
+
+		//the position relative to the block that it should spawn for correct angle
+		pitObject.transform.position = new Vector2 (pit.transform.position.x,pit.transform.position.y);
 		
 	}
 }

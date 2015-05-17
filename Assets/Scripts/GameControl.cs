@@ -6,7 +6,8 @@ public class GameControl : MonoBehaviour {
 	public GameObject gameOverScreen;
 	public Transform player;
 	public GUISkin skin;
-	public float deathPosition = -2.754f;
+	public float deathPositionX = -2.754f;
+	public float deathPositionY = 0.047f;
 	float totalTimeElapsed = 0;
 	float score = 0f;                // Total score
 	int middle = 0;
@@ -24,7 +25,7 @@ public class GameControl : MonoBehaviour {
 		totalTimeElapsed += Time.deltaTime;
 		score = totalTimeElapsed * 10; 
 
-		if(!isGameOver && player.position.x <= deathPosition)
+		if((!isGameOver && player.position.x <= deathPositionX) || !isGameOver && player.position.y <= deathPositionY)
 		{
 			isGameOver = true;
 		}
