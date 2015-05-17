@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rock_prefab: {fileID: 154132, guid: dc7d60985198ff04d8d0b6cb1169fa7c, type: 2}
+  tree_prefab: {fileID: 167882, guid: 75704945c2bfa784f994fc0d0f8e4bf0, type: 2}
   world: {fileID: 251836086}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
@@ -768,8 +769,8 @@ MonoBehaviour:
   power_bar: {fileID: 747524429}
   start_point: {fileID: 1564405349}
   bird_speed: .200000003
-  speed: 300
-  gravity: 10
+  speed: 285
+  gravity: 9.5
   grounded: 0
 --- !u!1 &1333415861
 GameObject:
