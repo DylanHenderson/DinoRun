@@ -223,6 +223,17 @@ public class PlayerController : MonoBehaviour {
 					
 					print ("colliding");
 					animator.SetFloat ("Speed", 0.1f);
+
+					float decreasedSpeed = 0f;
+
+					if(dinoType == DinoType.Raptor)
+					{
+						decreasedSpeed = 0.5f;
+					}else
+					{
+						decreasedSpeed = 0.75f;
+					}
+
 					Physics2D.IgnoreCollision(collisionInfo.collider, GetComponent<BoxCollider2D>());
 					//planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
 					movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
@@ -230,15 +241,15 @@ public class PlayerController : MonoBehaviour {
 					
 					
 					movingBackround1.GetComponent<MoveBackground>().moving = true;
-					movingBackround1.GetComponent<MoveBackground>().move_speed = movingBackround1.GetComponent<MoveBackground>().originalSpeed*0.5f;
+					movingBackround1.GetComponent<MoveBackground>().move_speed = movingBackround1.GetComponent<MoveBackground>().originalSpeed * decreasedSpeed;
 					
 					movingBackround2.GetComponent<MoveBackground>().moving = true;
-					movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed*0.5f;
+					movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed * decreasedSpeed;
 					
 					planet.GetComponent<Rotate>().rotating = true;
 					planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed*0.5f;
 					
-					Invoke ("resetSpeed",0.5f);
+					Invoke ("resetSpeed", decreasedSpeed);
 					
 				}
 

@@ -187,6 +187,7 @@ MonoBehaviour:
   rock_prefab: {fileID: 154132, guid: dc7d60985198ff04d8d0b6cb1169fa7c, type: 2}
   tree_prefab: {fileID: 0}
   pit: {fileID: 0}
+  bush_prefab: {fileID: 0}
   world: {fileID: 251836086}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
