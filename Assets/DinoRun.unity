@@ -5930,7 +5930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484374, guid: 21deaee02770f9b4fa49badd26fea725, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 113322, guid: 21deaee02770f9b4fa49badd26fea725, type: 2}
       propertyPath: m_IsActive
@@ -14115,7 +14115,7 @@ Transform:
   - {fileID: 2125520815}
   - {fileID: 1574137817}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1001 &1661427727
 Prefab:
   m_ObjectHideFlags: 0
