@@ -35,10 +35,11 @@ public class spawnObstacles : MonoBehaviour {
 
 		//choose an obstacle for position 1
 		spawnChance = Random.Range (0, 2);
+		print (spawnChance);
 
 		if (spawnChance == 1) {
 			obstacleChoice = Random.Range (0, 4);
-
+			print (obstacleChoice);
 			if (obstacleChoice == 0){
 				Invoke("spawnRock",1);
 			}else if(obstacleChoice == 1){
@@ -52,7 +53,7 @@ public class spawnObstacles : MonoBehaviour {
 		}
 
 		//choose an obstacle for position 2
-		spawnChance = Random.Range (0, 3);
+		spawnChance = Random.Range (0, 2);
 		
 		if (spawnChance == 1) {
 			obstacleChoice = Random.Range (0, 4);
@@ -70,17 +71,17 @@ public class spawnObstacles : MonoBehaviour {
 		}
 
 		//choose an obstacle for position 3
-		spawnChance = Random.Range (0, 4);
+		spawnChance = Random.Range (0, 2);
 		
 		if (spawnChance == 1) {
 			obstacleChoice = Random.Range (0, 4);
 			
 			if (obstacleChoice == 0){
-				Invoke("spawnRock",3);
+				Invoke("spawnRock",4);
 			}else if  (obstacleChoice == 1){
 				Invoke("spawnTree",5);
 			}else if(obstacleChoice == 2){
-				Invoke("spawnBush",3);
+				Invoke("spawnBush",4);
 			}else{
 				Invoke("spawnPit",5);
 			}

@@ -195,27 +195,53 @@ public class PlayerController : MonoBehaviour {
 				transform.GetComponent<SpriteRenderer>().sprite = defaultSprite;
 			}else{
 
+
+
+
+
+
+
 				// World speed stuff
-				if(collisionInfo.collider.name == "test-obstacle-rock(Clone)" || collisionInfo.collider.name == "tree(Clone)" )
+				if(collisionInfo.collider.tag == "hard" )
 				{
+					print ("hard collider");
 					animator.SetFloat ("Speed", 0f);
 					planet.GetComponent<Rotate>().rotating = false;
-					planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
+					//planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
 					
 					movingBackround1.GetComponent<MoveBackground>().moving = false;
 					movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
 					
 					movingBackround2.GetComponent<MoveBackground>().moving = false;
 					movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
-				}
-
-				if(collisionInfo.collider.name == "tree-top(Clone)" || collisionInfo.collider.name == "bush(Clone)" ){
-
-					animator.SetFloat ("Speed", 5f);
-
-
 
 				}
+
+
+
+				if(collisionInfo.collider.tag == "bush" ){
+					
+					print ("colliding");
+					animator.SetFloat ("Speed", 0.1f);
+					Physics2D.IgnoreCollision(collisionInfo.collider, GetComponent<BoxCollider2D>());
+					//planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
+					movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
+					movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
+					
+					
+					movingBackround1.GetComponent<MoveBackground>().moving = true;
+					movingBackround1.GetComponent<MoveBackground>().move_speed = movingBackround1.GetComponent<MoveBackground>().originalSpeed*0.5f;
+					
+					movingBackround2.GetComponent<MoveBackground>().moving = true;
+					movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed*0.5f;
+					
+					planet.GetComponent<Rotate>().rotating = true;
+					planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed*0.5f;
+					
+					Invoke ("resetSpeed",0.5f);
+					
+				}
+
 			
 			}
 
@@ -229,25 +255,31 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+
+
 	void OnCollisionStay2D(Collision2D collisionInfo)
 	{
-		if(collisionInfo.collider.name == "test-obstacle-rock(Clone)" || collisionInfo.collider.name == "tree(Clone)")
+		if(collisionInfo.collider.tag == "hard")
 		{
 			animator.SetFloat ("Speed", 0f);
+			CancelInvoke ("resetSpeed");
+
 		}
 
-		if(collisionInfo.collider.name == "tree-top(Clone)" || collisionInfo.collider.name == "bush(Clone)" ){
+		if(collisionInfo.collider.tag == "bush" ){
 			
-			
-			animator.SetFloat ("Speed", 5f);
-			
+			print ("colliding");
+			animator.SetFloat ("Speed", 0.1f);
+			Physics2D.IgnoreCollision(collisionInfo.collider, GetComponent<BoxCollider2D>());
+			//Invoke ("resetSpeed",0.5f);
+
 			
 		}
 	}
 
 	void OnCollisionExit2D(Collision2D collisionInfo)
 	{
-		if(collisionInfo.collider.name == "test-obstacle-rock(Clone)" || collisionInfo.collider.name == "tree(Clone)" )
+		if(collisionInfo.collider.tag == "hard" )
 		{
 			planet.GetComponent<Rotate>().rotating = true;
 			planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed;
@@ -257,17 +289,23 @@ public class PlayerController : MonoBehaviour {
 
 			movingBackround2.GetComponent<MoveBackground>().moving = true;
 			movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed;
+			Invoke ("resetSpeed",0.5f);
+
 		}
 
 
-		if(collisionInfo.collider.name == "tree-top(Clone)" || collisionInfo.collider.name == "bush(Clone)" ){
-			
-			
-			
-			
-			
-		}
 
 		collidingObject = null;
+	}
+
+	void resetSpeed(){
+		planet.GetComponent<Rotate>().rotating = true;
+		planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed;
+		
+		movingBackround1.GetComponent<MoveBackground>().moving = true;
+		movingBackround1.GetComponent<MoveBackground>().move_speed = movingBackround1.GetComponent<MoveBackground>().originalSpeed;
+		
+		movingBackround2.GetComponent<MoveBackground>().moving = true;
+		movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed;
 	}
 }
