@@ -41,7 +41,6 @@ public class PowerUpBar : MonoBehaviour {
 	}
 
 	public void cancelDecrease(){
-		print ("caneling");
 		CancelInvoke("decreasePower");
 		InvokeRepeating ("increasePower",0.5f,0.5f);
 
