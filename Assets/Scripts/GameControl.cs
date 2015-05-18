@@ -13,9 +13,11 @@ public class GameControl : MonoBehaviour {
 	int middle = 0;
 
 	public bool isGameOver = false;
+	private GUIText guiText;
 
 	// Use this for initialization
 	void Start () {
+		guiText = GameObject.Find("Score").GetComponent<GUIText>();
 	}
 	
 	// Update is called once per frame
@@ -39,7 +41,8 @@ public class GameControl : MonoBehaviour {
 		// Check if game is not over, if so, display the score and the time left
 		if (!isGameOver)
 		{
-			GUI.Label(new Rect(Screen.width / 2, 70, Screen.width / 6, Screen.height / 6), ((int)score).ToString());
+			guiText.text = "Score:" + ((int)score).ToString();
+			//GUI.Label(new Rect(Screen.width / 2, 70, Screen.width / 6, Screen.height / 6), ((int)score).ToString());
 		}
 		
 		// If game over, display game over menu with score
