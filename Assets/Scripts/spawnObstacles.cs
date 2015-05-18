@@ -6,6 +6,7 @@ public class spawnObstacles : MonoBehaviour {
 	public GameObject rock_prefab;
 	public GameObject tree_prefab;
 	public GameObject pit;
+	public GameObject bush_prefab;
 	public Transform world;
 
 	public float x_spawn_position = 3.205652f;
@@ -36,14 +37,16 @@ public class spawnObstacles : MonoBehaviour {
 		spawnChance = Random.Range (0, 2);
 
 		if (spawnChance == 1) {
-			obstacleChoice = Random.Range (0, 3);
+			obstacleChoice = Random.Range (0, 4);
 
 			if (obstacleChoice == 0){
 				Invoke("spawnRock",1);
 			}else if(obstacleChoice == 1){
-				Invoke("spawnRock",2);
+				Invoke("spawnTree",1);
+			}else if(obstacleChoice == 2){
+				Invoke("spawnBush",1);
 			}else{
-				Invoke("spawnPit",3);
+				Invoke("spawnPit",1);
 			}
 
 		}
@@ -52,12 +55,14 @@ public class spawnObstacles : MonoBehaviour {
 		spawnChance = Random.Range (0, 3);
 		
 		if (spawnChance == 1) {
-			obstacleChoice = Random.Range (0, 3);
+			obstacleChoice = Random.Range (0, 4);
 			
-			if (obstacleChoice == 1){
-				Invoke("spawnRock",1);
-			}else if  (obstacleChoice == 2){
-				Invoke("spawnTree",2);
+			if (obstacleChoice == 0){
+				Invoke("spawnRock",2);
+			}else if  (obstacleChoice == 1){
+				Invoke("spawnTree",3);
+			}else if(obstacleChoice == 2){
+				Invoke("spawnBush",2);
 			}else{
 				Invoke("spawnPit",3);
 			}
@@ -68,21 +73,19 @@ public class spawnObstacles : MonoBehaviour {
 		spawnChance = Random.Range (0, 4);
 		
 		if (spawnChance == 1) {
-			obstacleChoice = Random.Range (0, 3);
+			obstacleChoice = Random.Range (0, 4);
 			
-			if (obstacleChoice == 1){
-				Invoke("spawnRock",1);
-			}else if  (obstacleChoice == 2){
-				Invoke("spawnTree",2);
+			if (obstacleChoice == 0){
+				Invoke("spawnRock",3);
+			}else if  (obstacleChoice == 1){
+				Invoke("spawnTree",5);
+			}else if(obstacleChoice == 2){
+				Invoke("spawnBush",3);
 			}else{
-				Invoke("spawnPit",3);
+				Invoke("spawnPit",5);
 			}
 			
 		}
-
-
-
-
 
 	}
 
@@ -108,6 +111,15 @@ public class spawnObstacles : MonoBehaviour {
 
 		//the position relative to the block that it should spawn for correct angle
 		pitObject.transform.position = new Vector2 (pit.transform.position.x,pit.transform.position.y);
+		
+	}
+
+	void spawnBush(){
+		GameObject bush = Instantiate (bush_prefab) as GameObject;
+		bush.transform.parent = world;
+		
+		//the position relative to the block that it should spawn for correct angle
+		bush.transform.position = new Vector2 (pit.transform.position.x,pit.transform.position.y);
 		
 	}
 }
