@@ -208,6 +208,14 @@ public class PlayerController : MonoBehaviour {
 					movingBackround2.GetComponent<MoveBackground>().moving = false;
 					movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
 				}
+
+				if(collisionInfo.collider.name == "tree-top(Clone)" || collisionInfo.collider.name == "bush(Clone)" ){
+
+					animator.SetFloat ("Speed", 5f);
+
+
+
+				}
 			
 			}
 
@@ -227,6 +235,14 @@ public class PlayerController : MonoBehaviour {
 		{
 			animator.SetFloat ("Speed", 0f);
 		}
+
+		if(collisionInfo.collider.name == "tree-top(Clone)" || collisionInfo.collider.name == "bush(Clone)" ){
+			
+			
+			animator.SetFloat ("Speed", 5f);
+			
+			
+		}
 	}
 
 	void OnCollisionExit2D(Collision2D collisionInfo)
@@ -241,6 +257,15 @@ public class PlayerController : MonoBehaviour {
 
 			movingBackround2.GetComponent<MoveBackground>().moving = true;
 			movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed;
+		}
+
+
+		if(collisionInfo.collider.name == "tree-top(Clone)" || collisionInfo.collider.name == "bush(Clone)" ){
+			
+			
+			
+			
+			
 		}
 
 		collidingObject = null;
