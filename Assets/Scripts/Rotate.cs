@@ -32,7 +32,7 @@ public class Rotate : MonoBehaviour {
 		if (!doom) {
 			rotate_speed += speed_increase;
 		} else {
-			rotate_speed = planet.GetComponent<Rotate>().originalSpeed - planet.GetComponent<Rotate>().rotate_speed;
+			rotate_speed = (planet.GetComponent<Rotate>().originalSpeed - planet.GetComponent<Rotate>().rotate_speed) * 0.7f;
 
 			if(rotate_speed > 0)
 			{
