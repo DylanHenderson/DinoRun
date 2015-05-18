@@ -1353,7 +1353,7 @@ MonoBehaviour:
   pit: {fileID: 167882, guid: d74cbcd9bee20ca47ac1f3d7ab4bfe7a, type: 2}
   bush_prefab: {fileID: 192064, guid: 2cabf0592ff338e4ea87d81f1d852eeb, type: 2}
   world: {fileID: 251836086}
-  fire_prefab: {fileID: 0}
+  fire_prefab: {fileID: 100008, guid: 1dd9a5f2132814a52bfd0045ee146d2a, type: 2}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
 --- !u!1001 &319563567
@@ -1393,7 +1393,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447284, guid: 5c845463d6b86e7438b18dbce2d78f9a, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11496782, guid: 5c845463d6b86e7438b18dbce2d78f9a, type: 2}
       propertyPath: target_crash
@@ -6037,7 +6037,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484374, guid: 21deaee02770f9b4fa49badd26fea725, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 113322, guid: 21deaee02770f9b4fa49badd26fea725, type: 2}
       propertyPath: m_IsActive
@@ -13315,7 +13315,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413032, guid: 3bd08685373a3fe41be9fc1636375ac0, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bd08685373a3fe41be9fc1636375ac0, type: 2}
@@ -14668,7 +14668,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: EmissionModule.rate.scalar
