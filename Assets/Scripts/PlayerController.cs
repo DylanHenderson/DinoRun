@@ -188,6 +188,13 @@ public class PlayerController : MonoBehaviour {
 		{
 			collidingObject = collisionInfo.collider.transform;
 
+			// DOOM
+			if(collisionInfo.collider.tag == "doom" )
+			{
+				// End the game if hit by doom
+				gameController.GetComponent<GameControl>().isGameOver = true;
+			}
+
 			// Jumping stuff
 			if(transform.position.y > 1.5f)
 			{
@@ -198,7 +205,7 @@ public class PlayerController : MonoBehaviour {
 
 
 
-				Debug.Log (collisionInfo.collider.tag);
+				Debug.Log ("Tag: " + collisionInfo.collider.tag);
 
 
 
@@ -256,12 +263,7 @@ public class PlayerController : MonoBehaviour {
 
 
 
-				// DOOM
-				if(collisionInfo.collider.tag == "doom" )
-				{
-					// End the game if hit by doom
-					gameController.GetComponent<GameControl>().isGameOver = true;
-				}
+
 
 			
 			}

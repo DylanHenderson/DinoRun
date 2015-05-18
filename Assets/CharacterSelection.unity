@@ -87,6 +87,56 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &124802648
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .0199999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.69999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131730, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_Name
+      value: moving-Sphere 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488976, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: rotating
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &244882757
 Prefab:
   m_ObjectHideFlags: 0
@@ -124,11 +174,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453636, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 131730, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
       propertyPath: m_Name
       value: moving-Sphere 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488976, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: rotating
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21247400, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aee7b004571573342b7c8bf7f9fa6dcf, type: 2}
@@ -190,7 +248,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &569802216
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +367,7 @@ Transform:
   - {fileID: 932928209}
   - {fileID: 1211347796}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &932928208
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1327981223}
-  planet: {fileID: 0}
+  planet: {fileID: 244882758}
   pauseScreen: {fileID: 582359713}
   speed: 300
   minSwipeLength: 200
@@ -534,12 +592,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1327981220}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: -1.62920685e-07}
-  m_LocalPosition: {x: .0966993719, y: -12.1700001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.00866001099, y: 5.23543024, z: -.200000003}
+  m_LocalScale: {x: .857142985, y: .857142985, z: 1}
   m_Children: []
-  m_Father: {fileID: 1527364338}
-  m_RootOrder: 0
+  m_Father: {fileID: 244882758}
+  m_RootOrder: 1
 --- !u!50 &1327981224
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -580,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dinoType: 0
-  planet: {fileID: 0}
+  planet: {fileID: 244882758}
   collidingObject: {fileID: 0}
   movingBackround1: {fileID: 0}
   movingBackround2: {fileID: 0}
@@ -681,7 +739,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1333415867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dinoType: 1
-  planet: {fileID: 0}
+  planet: {fileID: 244882758}
   collidingObject: {fileID: 0}
   movingBackround1: {fileID: 0}
   movingBackround2: {fileID: 0}
@@ -826,8 +884,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
   m_LocalPosition: {x: .0742285699, y: -5.1960001, z: -.200000003}
   m_LocalScale: {x: .857142925, y: .857142925, z: 1}
-  m_Children:
-  - {fileID: 1327981223}
+  m_Children: []
   m_Father: {fileID: 244882758}
   m_RootOrder: 0
 --- !u!1 &1574137812
@@ -982,7 +1039,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1599747316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1069,7 @@ Transform:
   - {fileID: 2125520815}
   - {fileID: 1574137817}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1784283913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1145,7 @@ Transform:
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1859067786
 GameObject:
   m_ObjectHideFlags: 0
