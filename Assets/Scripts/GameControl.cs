@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour {
 
@@ -13,11 +14,11 @@ public class GameControl : MonoBehaviour {
 	int middle = 0;
 
 	public bool isGameOver = false;
-	private GUIText guiText;
+	public Text guiText;
 
 	// Use this for initialization
 	void Start () {
-		guiText = GameObject.Find("Score").GetComponent<GUIText>();
+		//guiText = GameObject.Find("Score").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
