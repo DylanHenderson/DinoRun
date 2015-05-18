@@ -12,6 +12,8 @@ public class GameControl : MonoBehaviour {
 	float totalTimeElapsed = 0;
 	float score = 0f;                // Total score
 	int middle = 0;
+	public Sprite tricera;
+	public RuntimeAnimatorController triceraController;
 
 	public bool isGameOver = false;
 	public Text guiText;
@@ -19,6 +21,13 @@ public class GameControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//guiText = GameObject.Find("Score").GetComponent<Text>();
+
+		if(PlayerPrefs.GetString("Dino").Equals("Triceratops"))
+		{
+			player.GetComponent<SpriteRenderer>().sprite = tricera;
+			player.GetComponent<Animator>().runtimeAnimatorController = triceraController;
+			player.GetComponent<PlayerController>().dinoType = PlayerController.DinoType.Triceratops;
+		}
 	}
 	
 	// Update is called once per frame

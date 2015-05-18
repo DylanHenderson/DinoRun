@@ -22,13 +22,15 @@ public class TouchScript : MonoBehaviour {
 	private RaycastHit hit;
 	private Ray ray;
 	public Camera titleCamera;
-	
+
 	// Use this for initialization
 	void Start () {
 
 		if (inGame) {
 			gameCountdown = gameController.GetComponent<Countdown> ();
 			gameCountdown.startCountdown ();
+		} else {
+			PlayerPrefs.SetString("Dino", "Raptor");
 		}
 		originalPositon = player.position;
 	}
@@ -154,13 +156,50 @@ public class TouchScript : MonoBehaviour {
 			gameCountdown.startCountdown();
 			pauseScreen.gameObject.SetActive(false);
 			break;
+		case "Previous":
+
+			planet.transform.Rotate (Vector3.forward   * 180f, Space.Self);
+
+
+			if(PlayerPrefs.GetString("Dino").Equals("Raptor"))
+			{
+				PlayerPrefs.SetFloat("RotationValue", 180f);
+				PlayerPrefs.SetString("Dino", "Triceratops");
+			}else{
+				PlayerPrefs.SetFloat("RotationValue", 0f);
+				PlayerPrefs.SetString("Dino", "Raptor");
+			}
+
+			Debug.Log (PlayerPrefs.GetString("Dino"));
+
+			break;
+		case "Next":
+
+			planet.transform.Rotate (Vector3.back  * 180f, Space.Self);
+
+
+			if(PlayerPrefs.GetString("Dino").Equals("Raptor"))
+			{
+				PlayerPrefs.SetFloat("RotationValue", 180f);
+				PlayerPrefs.SetString("Dino", "Triceratops");
+			}else{
+				PlayerPrefs.SetFloat("RotationValue", 0f);
+				PlayerPrefs.SetString("Dino", "Raptor");
+			}
+
+			Debug.Log (PlayerPrefs.GetString("Dino"));
+
+			break;
 		case "Main Menu":
 			Time.timeScale = 1;
 			Application.LoadLevel("Menu");
 			break;
-		case "Menu Play":
+		case "Selection play":
 			Time.timeScale = 1;
 			Application.LoadLevel("DinoRun");
+			break;
+		case "Tap to play":
+			Application.LoadLevel("CharacterSelection");
 			break;
 		case "Restart":
 			Time.timeScale = 1;

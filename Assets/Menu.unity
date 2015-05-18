@@ -256,7 +256,7 @@ GameObject:
   - 102: {fileID: 569802218}
   - 65: {fileID: 569802217}
   m_Layer: 0
-  m_Name: Menu Play
+  m_Name: Tap to play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,8 +272,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.5295067, y: 6.2760067, z: 20}
-  m_Center: {x: 5.73524666, y: -2.51116276, z: 0}
+  m_Size: {x: 134.495987, y: 58.2557983, z: 20}
+  m_Center: {x: 5.1963377, y: -3.73195171, z: 0}
 --- !u!102 &569802218
 TextMesh:
   serializedVersion: 3
@@ -281,7 +281,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569802216}
-  m_Text: Play
+  m_Text: Tap To Play
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

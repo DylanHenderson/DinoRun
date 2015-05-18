@@ -12785,6 +12785,8 @@ MonoBehaviour:
   skin: {fileID: 11400000, guid: 9a248991f18c3ed4aa9c2932789e6452, type: 2}
   deathPositionX: -2.75399995
   deathPositionY: .0469999984
+  tricera: {fileID: 21300000, guid: bd57cc721bd729548a4407976c869cf2, type: 3}
+  triceraController: {fileID: 9100000, guid: 7f243983f80134ee8baaef5183c4cfa6, type: 2}
   isGameOver: 0
   guiText: {fileID: 101103910}
 --- !u!4 &1486932400
