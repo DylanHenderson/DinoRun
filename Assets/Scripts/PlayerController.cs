@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 100;
 	public float gravity = 1;
 	public bool grounded = false;
+	public GameObject bird_swoosh;
+	public Transform bird_swoosh_start;
 
 	private Animator animator;
 	private Rigidbody2D r2;
@@ -119,6 +121,9 @@ public class PlayerController : MonoBehaviour {
 			gravity = 0;
 			pb.initiateDecrease();
 			current_dino_x = gameObject.transform.position.x;
+			GameObject swoosh = Instantiate(bird_swoosh,bird_swoosh_start.position,Quaternion.identity) as GameObject;
+
+			Destroy (swoosh, 5);
 		}
 	}
 
