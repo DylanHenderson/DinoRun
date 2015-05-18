@@ -6,10 +6,10 @@ public class FireballMovement : MonoBehaviour {
 	public Transform target_crash;
 	public GameObject explosion;
 	public float speed = 10;
-	public GameObject spawner;
+	private GameObject spawner;
 	// Use this for initialization
 	void Start () {
-
+		spawner = GameObject.Find("moving-Sphere");
 		Destroy (gameObject,1);
 		Invoke ("explode",0.9f);
 	}

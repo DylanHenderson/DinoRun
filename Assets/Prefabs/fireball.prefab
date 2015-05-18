@@ -189,10 +189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4157399108adf8c46a7597c5a081caaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target_crash: {fileID: 0}
+  target_crash: {fileID: 413032, guid: 3bd08685373a3fe41be9fc1636375ac0, type: 2}
   explosion: {fileID: 100014, guid: 85dd725048a6f40f0bba87b5187710bf, type: 2}
   speed: .0500000007
-  spawner: {fileID: 0}
 --- !u!198 &19802326
 ParticleSystem:
   m_ObjectHideFlags: 1
