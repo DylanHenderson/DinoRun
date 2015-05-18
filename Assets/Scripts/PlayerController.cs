@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	public Sprite jump;
 	public Sprite defaultSprite;
 	public GameObject bird;
+	public GameObject gameController;
 	public GameObject power_bar;
 	public Transform start_point;
 	public float bird_speed;
@@ -197,7 +198,7 @@ public class PlayerController : MonoBehaviour {
 
 
 
-
+				Debug.Log (collisionInfo.collider.tag);
 
 
 
@@ -247,20 +248,22 @@ public class PlayerController : MonoBehaviour {
 					movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed * decreasedSpeed;
 					
 					planet.GetComponent<Rotate>().rotating = true;
-					planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed*0.5f;
+					planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed * decreasedSpeed;
 					
 					Invoke ("resetSpeed", decreasedSpeed);
 					
 				}
 
-			
-			}
 
-			float decreaseAmount;
+
+				// DOOM
+				if(collisionInfo.collider.tag == "doom" )
+				{
+					// End the game if hit by doom
+					gameController.GetComponent<GameControl>().isGameOver = true;
+				}
+
 			
-			if(dinoType == DinoType.Raptor)
-			{
-				
 			}
 
 		}
