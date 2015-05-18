@@ -8,6 +8,7 @@ public class spawnObstacles : MonoBehaviour {
 	public GameObject pit;
 	public GameObject bush_prefab;
 	public Transform world;
+	public GameObject fire_prefab;
 
 	public float x_spawn_position = 3.205652f;
 	public float y_spawn_position = 0.67f;
@@ -113,6 +114,14 @@ public class spawnObstacles : MonoBehaviour {
 		//the position relative to the block that it should spawn for correct angle
 		pitObject.transform.position = new Vector2 (pit.transform.position.x,pit.transform.position.y);
 		
+	}
+
+	public void spawnFire(){
+		GameObject fire = Instantiate (fire_prefab) as GameObject;
+		fire.transform.parent = world;
+		
+		//the position relative to the block that it should spawn for correct angle
+		fire.transform.position = new Vector2 (fire.transform.position.x,fire.transform.position.y);
 	}
 
 	void spawnBush(){
