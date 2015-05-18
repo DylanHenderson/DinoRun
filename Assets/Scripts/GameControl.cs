@@ -19,6 +19,7 @@ public class GameControl : MonoBehaviour {
 
 	public bool isGameOver = false;
 	public Text guiText;
+	public Text gameOverText;
 
 	// Use this for initialization
 	void Start () {
@@ -72,9 +73,8 @@ public class GameControl : MonoBehaviour {
 		{
 			skin.label.fontSize = 55;
 			Time.timeScale = 0;
+			gameOverText.text = "Game Over\n Score: " + ((int)score).ToString();
 			gameOverScreen.gameObject.SetActive(true);
-			GUI.Label(new Rect(270, 85, 500, 500), "Game Over");
-			GUI.Label(new Rect(300, 145, 500, 500), "Score: " + ((int)score).ToString());
 		}
 	}
 }

@@ -1402,7 +1402,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .673345208, y: 1}
   m_AnchorMax: {x: .673345208, y: 1}
-  m_AnchoredPosition: {x: -6.19000053, y: -52.7999992}
+  m_AnchoredPosition: {x: -125, y: -81}
   m_SizeDelta: {x: 750, y: 150}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &497321350
@@ -3641,7 +3641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &634403119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3655,6 +3655,7 @@ RectTransform:
   m_Children:
   - {fileID: 29552276}
   - {fileID: 763874500}
+  - {fileID: 906369741}
   m_Father: {fileID: 1799448946}
   m_RootOrder: 5
   m_AnchorMin: {x: 1, y: 1}
@@ -7057,6 +7058,75 @@ Transform:
   - {fileID: 1226531611}
   m_Father: {fileID: 1872713224}
   m_RootOrder: 1
+--- !u!1 &906369740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114486, guid: ee864fc9d13d56f4090dc4d49854ca07, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 906369741}
+  - 222: {fileID: 906369743}
+  - 114: {fileID: 906369742}
+  m_Layer: 0
+  m_Name: Game Over Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &906369741
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22452728, guid: ee864fc9d13d56f4090dc4d49854ca07,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906369740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 634403119}
+  m_RootOrder: 2
+  m_AnchorMin: {x: .673345208, y: 1}
+  m_AnchorMax: {x: .673345208, y: 1}
+  m_AnchoredPosition: {x: -64.0999985, y: -130.300003}
+  m_SizeDelta: {x: 750, y: 500}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &906369742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11418204, guid: ee864fc9d13d56f4090dc4d49854ca07,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906369740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 120
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Game Over\n  Score : 0"
+--- !u!222 &906369743
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22216248, guid: ee864fc9d13d56f4090dc4d49854ca07,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906369740}
 --- !u!1 &969454055
 GameObject:
   m_ObjectHideFlags: 0
@@ -13174,6 +13244,7 @@ MonoBehaviour:
   triceraController: {fileID: 9100000, guid: 7f243983f80134ee8baaef5183c4cfa6, type: 2}
   isGameOver: 0
   guiText: {fileID: 101103910}
+  gameOverText: {fileID: 0}
 --- !u!4 &1486932400
 Transform:
   m_ObjectHideFlags: 0
