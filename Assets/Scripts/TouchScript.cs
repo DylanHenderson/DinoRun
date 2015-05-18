@@ -39,15 +39,14 @@ public class TouchScript : MonoBehaviour {
 	void Update () {	
 
 		//Check if we are running either in the Unity editor or in a standalone build.
-		#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
+		//#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 		editorClick ();
-		#endif
-
+		//#endif
 
 		//Check if we are running on iOS, Android, Windows Phone 8 or Unity iPhone
-		#if UNITY_IOS || UNITY_ANDROID || UNITY_IPHONE
-		mobileTouch ();
-		#endif
+		//#if UNITY_IOS || UNITY_ANDROID || UNITY_IPHONE
+		//mobileTouch ();
+		//#endif
 	}
 
 	void editorClick()
