@@ -73,6 +73,7 @@ public class GameControl : MonoBehaviour {
 		{
 			skin.label.fontSize = 55;
 			Time.timeScale = 0;
+			guiText.text = "Score:" + ((int)score).ToString();
 			gameOverText.text =  "Game Over\n  Score:" + ((int)score).ToString();
 			gameOverScreen.gameObject.SetActive(true);
 		}

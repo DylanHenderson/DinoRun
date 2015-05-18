@@ -191,6 +191,7 @@ MonoBehaviour:
   pit: {fileID: 0}
   bush_prefab: {fileID: 0}
   world: {fileID: 251836086}
+  fire_prefab: {fileID: 0}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
 --- !u!1 &497321350
