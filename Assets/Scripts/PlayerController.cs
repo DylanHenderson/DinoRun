@@ -135,9 +135,9 @@ public class PlayerController : MonoBehaviour {
 			gravity = 0;
 			pb.initiateDecrease();
 			current_dino_x = gameObject.transform.position.x;
-			//GameObject swoosh = Instantiate(bird_swoosh,bird_swoosh_start.position,Quaternion.identity) as GameObject;
+			GameObject swoosh = Instantiate(bird_swoosh,bird_swoosh_start.position,Quaternion.identity) as GameObject;
 
-			//Destroy (swoosh, 5);
+			Destroy (swoosh, 5);
 		}
 	}
 

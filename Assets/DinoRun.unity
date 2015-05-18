@@ -11427,7 +11427,7 @@ MonoBehaviour:
   speed: 285
   gravity: 13
   grounded: 0
-  bird_swoosh: {fileID: 19800000, guid: 71dd3f6129bb9447db0ee3a8b88aec03, type: 2}
+  bird_swoosh: {fileID: 100000, guid: 71dd3f6129bb9447db0ee3a8b88aec03, type: 2}
   bird_swoosh_start: {fileID: 626997733}
   inGame: 1
 --- !u!1 &1333415861
