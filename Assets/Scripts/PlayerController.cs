@@ -52,30 +52,28 @@ public class PlayerController : MonoBehaviour {
 			animator.SetFloat ("Speed", 0.5f);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update()
-	{
 
-			// Gravity
-			r2.AddForce ((planet.position - transform.position).normalized * gravity);
+	void FixedUpdate()
+	{
+		// Gravity
+		r2.AddForce ((planet.position - transform.position).normalized * gravity);
 
 		if (inGame) {
 			// Jumping
 			if (Input.GetKeyDown ("space") && grounded) {
 				r2.AddForce ((planet.position - transform.position).normalized * speed * -1);
 			}
-
+			
 			//when player is flying and still has power left
 			if (flying && pb.getcanFly ()) {
-			
+				
 				gameObject.transform.position = new Vector2 (current_dino_x, original_height + 1);
 				end_point = new Vector3 (gameObject.transform.position.x, bird.transform.position.y, bird.transform.position.z);
-			
-			
-			
+				
+				
+				
 				bird.transform.position = Vector3.Lerp (start_point.position, end_point, bird_speed);
-			
+				
 				//can no longer fly push to ground, send bird back to position	
 			} else if (inGame) {
 				flying = false;
@@ -83,29 +81,29 @@ public class PlayerController : MonoBehaviour {
 				//pb.cancelDecrease();
 				bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
 			}
-
+			
 			// Cancel animation while jumping
 			if ((transform.position.y < 1.5f && !grounded)) {
-
+				
 				grounded = true;
 				animator.enabled = true;
 				transform.GetComponent<SpriteRenderer> ().sprite = defaultSprite;
 			} else if (transform.position.y > 1.5f && grounded) {
 				grounded = false;
 			}
-
+			
 			// Running Animation
 			if (grounded && collidingObject == null) {
-
+				
 				worldSpeed = planet.GetComponent<Rotate> ().rotate_speed; 
 				worldSpeed = Normalize (worldSpeed);
 				animator.SetFloat ("Speed", worldSpeed);
 			} else if (!grounded && worldSpeed != 0f) {
-
+				
 				// Set to 0 to make sure we dont continually update
 				worldSpeed = 0f;
 				animator.SetFloat ("Speed", 0f);
-
+				
 				// If moving upwards
 				if (r2.velocity.y >= -10E-09) {
 					animator.enabled = false;
@@ -113,6 +111,15 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	
+
+
 	}
 
 	public bool isUsingPower()
@@ -128,9 +135,9 @@ public class PlayerController : MonoBehaviour {
 			gravity = 0;
 			pb.initiateDecrease();
 			current_dino_x = gameObject.transform.position.x;
-			GameObject swoosh = Instantiate(bird_swoosh,bird_swoosh_start.position,Quaternion.identity) as GameObject;
+			//GameObject swoosh = Instantiate(bird_swoosh,bird_swoosh_start.position,Quaternion.identity) as GameObject;
 
-			Destroy (swoosh, 5);
+			//Destroy (swoosh, 5);
 		}
 	}
 
