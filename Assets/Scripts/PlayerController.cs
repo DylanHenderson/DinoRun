@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 	private Animator animator;
 	private Rigidbody2D r2;
 	private float worldSpeed = 0;
-	private bool flying;
+	private bool usingPower;
 	private float original_gravity;
 	private float original_height;
 	private PowerUpBar pb;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		animator = this.GetComponent<Animator>();
 		r2 = GetComponent<Rigidbody2D>();
-		flying = false;
+		usingPower = false;
 		original_gravity = gravity;
 		original_height = gameObject.transform.position.y;
 		//power_bar.GetComponent<PowerUpBar>().
@@ -64,8 +64,8 @@ public class PlayerController : MonoBehaviour {
 				r2.AddForce ((planet.position - transform.position).normalized * speed * -1);
 			}
 			
-			//when player is flying and still has power left
-			if (flying && pb.getcanFly ()) {
+			//when player is usingPower and still has power left
+			if (usingPower && pb.canUsePower ()) {
 				
 				gameObject.transform.position = new Vector2 (current_dino_x, original_height + 1);
 				end_point = new Vector3 (gameObject.transform.position.x, bird.transform.position.y, bird.transform.position.z);
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour {
 				
 				//can no longer fly push to ground, send bird back to position	
 			} else if (inGame) {
-				flying = false;
+				usingPower = false;
 				gravity = original_gravity;
 				//pb.cancelDecrease();
 				bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
@@ -124,29 +124,42 @@ public class PlayerController : MonoBehaviour {
 
 	public bool isUsingPower()
 	{
-		return flying;
+		return usingPower;
 	}
 
 	public void setPower()
 	{
-		if(pb.getcanFly ())
+		if(pb.canUsePower())
 		{
-			flying = true;
-			gravity = 0;
-			pb.initiateDecrease();
-			current_dino_x = gameObject.transform.position.x;
-			GameObject swoosh = Instantiate(bird_swoosh,bird_swoosh_start.position,Quaternion.identity) as GameObject;
+			// Will use flying power else dash
+			if(dinoType == DinoType.Raptor)
+			{
+				usingPower = true;
+				gravity = 0;
+				pb.initiateDecrease();
+				current_dino_x = gameObject.transform.position.x;
+				GameObject swoosh = Instantiate(bird_swoosh,bird_swoosh_start.position,Quaternion.identity) as GameObject;
+				
+				Destroy (swoosh, 5);
+			}else{
 
-			Destroy (swoosh, 5);
+			}
 		}
 	}
 
 	public void cancelPower()
 	{
-		flying = false;
+		usingPower = false;
 		gravity = original_gravity;
 		pb.cancelDecrease();
-		bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
+
+		// Will cancel flying power else dash
+		if(dinoType == DinoType.Raptor)
+		{
+			bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
+		}else{
+			
+		}
 	}
 
 
@@ -162,8 +175,6 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(collisionInfo.name == "pit(Clone)")
 		{
-			Debug.Log ("Herre");
-			
 			// Diable collider
 			grounded = false;
 			planet.GetComponent<CircleCollider2D>().enabled = false;

@@ -51,7 +51,7 @@ public class ComputerJumpScript : MonoBehaviour {
 
 		}
 
-		if (flying && pb.getcanFly ()) {
+		if (flying && pb.canUsePower ()) {
 
 			gameObject.transform.position = new Vector2 (current_dino_x, original_height + 1);
 			end_point = new Vector3(gameObject.transform.position.x,bird.transform.position.y,bird.transform.position.z);
@@ -67,7 +67,7 @@ public class ComputerJumpScript : MonoBehaviour {
 			bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
 		}
 
-		if (Input.GetKeyDown ("x") && pb.getcanFly ()){
+		if (Input.GetKeyDown ("x") && pb.canUsePower ()){
 			flying = true;
 			gravity = 0;
 			pb.initiateDecrease();
