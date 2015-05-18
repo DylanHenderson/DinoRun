@@ -18,6 +18,7 @@ public class TouchScript : MonoBehaviour {
 	public static Swipe swipeDirection;
 	private Vector3 originalPositon;
 	public bool inGame = true;
+	public bool characterSelection = false;
 
 	private RaycastHit hit;
 	private Ray ray;
@@ -128,6 +129,38 @@ public class TouchScript : MonoBehaviour {
 		}
 	}
 
+	void previousDino()
+	{
+		planet.transform.Rotate (Vector3.forward   * 180f, Space.Self);
+		
+		
+		if(PlayerPrefs.GetString("Dino").Equals("Raptor"))
+		{
+			PlayerPrefs.SetFloat("RotationValue", 180f);
+			PlayerPrefs.SetString("Dino", "Triceratops");
+		}else{
+			PlayerPrefs.SetFloat("RotationValue", 0f);
+			PlayerPrefs.SetString("Dino", "Raptor");
+		}
+
+	}
+	
+	void nextDino()
+	{
+		planet.transform.Rotate (Vector3.back  * 180f, Space.Self);
+		
+		
+		if(PlayerPrefs.GetString("Dino").Equals("Raptor"))
+		{
+			PlayerPrefs.SetFloat("RotationValue", 180f);
+			PlayerPrefs.SetString("Dino", "Triceratops");
+		}else{
+			PlayerPrefs.SetFloat("RotationValue", 0f);
+			PlayerPrefs.SetString("Dino", "Raptor");
+		}
+
+	}
+
 	
 	void buttonTouch(string name)
 	{
@@ -157,38 +190,10 @@ public class TouchScript : MonoBehaviour {
 			pauseScreen.gameObject.SetActive(false);
 			break;
 		case "Previous":
-
-			planet.transform.Rotate (Vector3.forward   * 180f, Space.Self);
-
-
-			if(PlayerPrefs.GetString("Dino").Equals("Raptor"))
-			{
-				PlayerPrefs.SetFloat("RotationValue", 180f);
-				PlayerPrefs.SetString("Dino", "Triceratops");
-			}else{
-				PlayerPrefs.SetFloat("RotationValue", 0f);
-				PlayerPrefs.SetString("Dino", "Raptor");
-			}
-
-			Debug.Log (PlayerPrefs.GetString("Dino"));
-
+			previousDino();
 			break;
 		case "Next":
-
-			planet.transform.Rotate (Vector3.back  * 180f, Space.Self);
-
-
-			if(PlayerPrefs.GetString("Dino").Equals("Raptor"))
-			{
-				PlayerPrefs.SetFloat("RotationValue", 180f);
-				PlayerPrefs.SetString("Dino", "Triceratops");
-			}else{
-				PlayerPrefs.SetFloat("RotationValue", 0f);
-				PlayerPrefs.SetString("Dino", "Raptor");
-			}
-
-			Debug.Log (PlayerPrefs.GetString("Dino"));
-
+			nextDino ();
 			break;
 		case "Main Menu":
 			Time.timeScale = 1;
@@ -221,10 +226,19 @@ public class TouchScript : MonoBehaviour {
 			
 			// Swipe left
 		} else if (y < 0 && y > -0.5f && y < 0.5f) {
-			
+
+			if(characterSelection)
+			{
+				previousDino();
+			}
+
 			// Swipe right
 		} else if (y > 0 && y > -0.5f && y < 0.5f) {
 			
+			if(characterSelection)
+			{
+				nextDino();
+			}
 		}
 	}
 		

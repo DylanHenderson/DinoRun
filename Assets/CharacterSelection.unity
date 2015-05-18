@@ -362,6 +362,7 @@ Transform:
   - {fileID: 569802220}
   - {fileID: 1943086538}
   - {fileID: 932928209}
+  - {fileID: 1211347796}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!1 &932928208
@@ -477,7 +478,48 @@ MonoBehaviour:
   minSwipeLength: 200
   gameController: {fileID: 0}
   inGame: 0
+  characterSelection: 1
   titleCamera: {fileID: 1333415865}
+--- !u!1 &1211347795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1211347796}
+  - 65: {fileID: 1211347797}
+  m_Layer: 0
+  m_Name: Tap Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1211347796
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1211347795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.48999977, y: 0, z: .236000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 582359713}
+  m_RootOrder: 4
+--- !u!65 &1211347797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1211347795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.24948597, y: 3.79327822, z: 1}
+  m_Center: {x: -4.62753248, y: 1.39663911, z: 0}
 --- !u!1 &1327981220
 GameObject:
   m_ObjectHideFlags: 0
