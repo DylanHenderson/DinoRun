@@ -119,7 +119,7 @@ public class spawnObstacles : MonoBehaviour {
 		bush.transform.parent = world;
 		
 		//the position relative to the block that it should spawn for correct angle
-		bush.transform.position = new Vector2 (pit.transform.position.x,pit.transform.position.y);
+		bush.transform.position = new Vector2 (bush.transform.position.x,bush.transform.position.y);
 		
 	}
 }
