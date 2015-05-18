@@ -7,7 +7,7 @@ public class FireballMovement : MonoBehaviour {
 	public float speed = 10;
 	// Use this for initialization
 	void Start () {
-		Destroy (gameObject,5);
+		Destroy (gameObject,1);
 	}
 	
 	// Update is called once per frame
