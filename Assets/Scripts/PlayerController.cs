@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	public bool grounded = false;
 	public GameObject bird_swoosh;
 	public Transform bird_swoosh_start;
+	public bool inGame = true;
 
 	private Animator animator;
 	private Rigidbody2D r2;
@@ -40,70 +41,76 @@ public class PlayerController : MonoBehaviour {
 		original_gravity = gravity;
 		original_height = gameObject.transform.position.y;
 		//power_bar.GetComponent<PowerUpBar>().
-		
-		pb = power_bar.GetComponent<PowerUpBar> ();
-		original_bird_x = bird.transform.position.x;
-		current_dino_x = gameObject.transform.position.x;
-		
+
+		if (inGame) {
+			pb = power_bar.GetComponent<PowerUpBar> ();
+			original_bird_x = bird.transform.position.x;
+			current_dino_x = gameObject.transform.position.x;
+		} else {
+
+			// Set animation for the main menu
+			animator.SetFloat ("Speed", 0.5f);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-		// Gravity
-		r2.AddForce((planet.position - transform.position).normalized * gravity);
 
-		// Jumping
-		if (Input.GetKeyDown ("space") && grounded) {
-			r2.AddForce((planet.position - transform.position).normalized * speed *-1);
-		}
+			// Gravity
+			r2.AddForce ((planet.position - transform.position).normalized * gravity);
 
-		//when player is flying and still has power left
-		if (flying && pb.getcanFly ()) {
+		if (inGame) {
+			// Jumping
+			if (Input.GetKeyDown ("space") && grounded) {
+				r2.AddForce ((planet.position - transform.position).normalized * speed * -1);
+			}
+
+			//when player is flying and still has power left
+			if (flying && pb.getcanFly ()) {
 			
-			gameObject.transform.position = new Vector2 (current_dino_x, original_height + 1);
-			end_point = new Vector3(gameObject.transform.position.x,bird.transform.position.y,bird.transform.position.z);
+				gameObject.transform.position = new Vector2 (current_dino_x, original_height + 1);
+				end_point = new Vector3 (gameObject.transform.position.x, bird.transform.position.y, bird.transform.position.z);
 			
 			
 			
-			bird.transform.position = Vector3.Lerp(start_point.position,end_point,bird_speed);
+				bird.transform.position = Vector3.Lerp (start_point.position, end_point, bird_speed);
 			
-		//can no longer fly push to ground, send bird back to position	
-		} else {
-			flying = false;
-			gravity = original_gravity;
-			//pb.cancelDecrease();
-			bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
-		}
+				//can no longer fly push to ground, send bird back to position	
+			} else if (inGame) {
+				flying = false;
+				gravity = original_gravity;
+				//pb.cancelDecrease();
+				bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
+			}
 
-		// Cancel animation while jumping
-		if((transform.position.y < 1.5f && !grounded)) {
+			// Cancel animation while jumping
+			if ((transform.position.y < 1.5f && !grounded)) {
 
-			grounded = true;
-			animator.enabled = true;
-			transform.GetComponent<SpriteRenderer>().sprite = defaultSprite;
-		}else if(transform.position.y > 1.5f && grounded)
-		{
-			grounded = false;
-		}
+				grounded = true;
+				animator.enabled = true;
+				transform.GetComponent<SpriteRenderer> ().sprite = defaultSprite;
+			} else if (transform.position.y > 1.5f && grounded) {
+				grounded = false;
+			}
 
-		// Running Animation
-		if (grounded && collidingObject == null) {
+			// Running Animation
+			if (grounded && collidingObject == null) {
 
-			worldSpeed = planet.GetComponent<Rotate> ().rotate_speed; 
-			worldSpeed = Normalize (worldSpeed);
-			animator.SetFloat ("Speed", worldSpeed);
-		} else if(!grounded && worldSpeed != 0f) {
+				worldSpeed = planet.GetComponent<Rotate> ().rotate_speed; 
+				worldSpeed = Normalize (worldSpeed);
+				animator.SetFloat ("Speed", worldSpeed);
+			} else if (!grounded && worldSpeed != 0f) {
 
-			// Set to 0 to make sure we dont continually update
-			worldSpeed = 0f;
-			animator.SetFloat ("Speed", 0f);
+				// Set to 0 to make sure we dont continually update
+				worldSpeed = 0f;
+				animator.SetFloat ("Speed", 0f);
 
-			// If moving upwards
-			if(r2.velocity.y >= -10E-09)
-			{
-				animator.enabled = false;
-				transform.GetComponent<SpriteRenderer>().sprite = jump;
+				// If moving upwards
+				if (r2.velocity.y >= -10E-09) {
+					animator.enabled = false;
+					transform.GetComponent<SpriteRenderer> ().sprite = jump;
+				}
 			}
 		}
 	}

@@ -2514,7 +2514,6 @@ GameObject:
   - 4: {fileID: 552543108}
   - 198: {fileID: 552543111}
   - 199: {fileID: 552543110}
-  - 114: {fileID: 552543109}
   m_Layer: 0
   m_Name: M_2D_FireMagic_03
   m_TagString: Untagged
@@ -2537,18 +2536,6 @@ Transform:
   - {fileID: 1356766601}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &552543109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 0ed017522a84746a58c727ee81888156,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 552543107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!199 &552543110
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -3749,7 +3736,6 @@ GameObject:
   - 4: {fileID: 688042673}
   - 198: {fileID: 688042676}
   - 199: {fileID: 688042675}
-  - 114: {fileID: 688042674}
   m_Layer: 0
   m_Name: M_2D_FireMagic_03_B (S=0.34)
   m_TagString: Untagged
@@ -3773,18 +3759,6 @@ Transform:
   - {fileID: 807106623}
   m_Father: {fileID: 781437216}
   m_RootOrder: 0
---- !u!114 &688042674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 0f66435ec1a8b4177babe2666785195a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 688042672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!199 &688042675
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -5977,7 +5951,6 @@ GameObject:
   - 4: {fileID: 852196306}
   - 198: {fileID: 852196305}
   - 199: {fileID: 852196304}
-  - 114: {fileID: 852196303}
   m_Layer: 0
   m_Name: M_2D_FireMagic_02
   m_TagString: Untagged
@@ -5985,18 +5958,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &852196303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 0ed017522a84746a58c727ee81888156,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 852196302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!199 &852196304
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -9230,6 +9191,7 @@ MonoBehaviour:
   speed: 300
   minSwipeLength: 200
   gameController: {fileID: 1486932398}
+  inGame: 1
   titleCamera: {fileID: 1333415865}
 --- !u!1 &1225992539
 GameObject:
@@ -11461,6 +11423,7 @@ MonoBehaviour:
   grounded: 0
   bird_swoosh: {fileID: 19800000, guid: 71dd3f6129bb9447db0ee3a8b88aec03, type: 2}
   bird_swoosh_start: {fileID: 626997733}
+  inGame: 1
 --- !u!1 &1333415861
 GameObject:
   m_ObjectHideFlags: 0
@@ -12843,6 +12806,7 @@ MonoBehaviour:
   countMax: 3
   world: {fileID: 251836083}
   player: {fileID: 1327981220}
+  touchManagement: {fileID: 1069745658}
   guiTextCountdown: {fileID: 454078085}
 --- !u!1 &1564405347
 GameObject:

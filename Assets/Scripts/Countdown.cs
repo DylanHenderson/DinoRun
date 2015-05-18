@@ -9,6 +9,7 @@ public class Countdown : MonoBehaviour
 	private int countDown;                      // Current countdown number
 	public GameObject world; 
 	public GameObject player;
+	public GameObject touchManagement;
 	public GameObject guiTextCountdown;            // GUIText reference
 	
 	void Start()
@@ -45,12 +46,14 @@ public class Countdown : MonoBehaviour
 	{
 		if (activate) {
 			player.GetComponent<PlayerController> ().enabled = true;
+			touchManagement.GetComponent<TouchScript>().enabled = true;
 			player.GetComponent<Animator> ().enabled = true;
 			world.GetComponent<spawnObstacles> ().enabled = true;
 			world.GetComponent<Rotate> ().enabled = true;
 			gameObject.GetComponent<GameControl>().enabled = true;
 		} else {
 			player.GetComponent<PlayerController>().enabled = false;
+			touchManagement.GetComponent<TouchScript>().enabled = false;
 			player.GetComponent<Animator>().enabled = false;
 			world.GetComponent<spawnObstacles>().enabled = false;
 			world.GetComponent<Rotate>().enabled = false;

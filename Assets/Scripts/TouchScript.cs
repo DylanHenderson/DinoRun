@@ -17,6 +17,7 @@ public class TouchScript : MonoBehaviour {
 	Vector2 currentSwipe;
 	public static Swipe swipeDirection;
 	private Vector3 originalPositon;
+	public bool inGame = true;
 
 	private RaycastHit hit;
 	private Ray ray;
@@ -24,8 +25,11 @@ public class TouchScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		gameCountdown = gameController.GetComponent<Countdown>();
-		gameCountdown.startCountdown();
+
+		if (inGame) {
+			gameCountdown = gameController.GetComponent<Countdown> ();
+			gameCountdown.startCountdown ();
+		}
 		originalPositon = player.position;
 	}
 	

@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rock_prefab: {fileID: 154132, guid: dc7d60985198ff04d8d0b6cb1169fa7c, type: 2}
   tree_prefab: {fileID: 0}
+  pit: {fileID: 0}
   world: {fileID: 251836086}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
@@ -404,6 +405,7 @@ MonoBehaviour:
   speed: 300
   minSwipeLength: 200
   gameController: {fileID: 0}
+  inGame: 0
   titleCamera: {fileID: 1333415865}
 --- !u!1 &1327981220
 GameObject:
@@ -521,6 +523,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dinoType: 0
   planet: {fileID: 251836086}
+  collidingObject: {fileID: 0}
+  movingBackround1: {fileID: 0}
+  movingBackround2: {fileID: 0}
   jump: {fileID: 0}
   defaultSprite: {fileID: 0}
   bird: {fileID: 0}
@@ -530,7 +535,9 @@ MonoBehaviour:
   speed: 300
   gravity: 15
   grounded: 0
-  collidingObject: {fileID: 0}
+  bird_swoosh: {fileID: 0}
+  bird_swoosh_start: {fileID: 0}
+  inGame: 0
 --- !u!1 &1333415861
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,9 +668,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32021b4a48cf1f0458d80a939824d504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 5
   move_speed: 5
   time_to_increase: 10
   speed_increase: 1
+  moving: 1
   offset: 28
   target: {fileID: 2125520815}
   second_sky: {fileID: 1859067791}
@@ -989,9 +998,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32021b4a48cf1f0458d80a939824d504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 5
   move_speed: 5
   time_to_increase: 10
   speed_increase: 1
+  moving: 1
   offset: 28
   target: {fileID: 2125520815}
   second_sky: {fileID: 1574137817}
