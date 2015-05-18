@@ -29,7 +29,6 @@ public class TouchScript : MonoBehaviour {
 
 		if (inGame) {
 			gameCountdown = gameController.GetComponent<Countdown> ();
-			gameCountdown.startCountdown ();
 		} else {
 			PlayerPrefs.SetString("Dino", "Raptor");
 		}

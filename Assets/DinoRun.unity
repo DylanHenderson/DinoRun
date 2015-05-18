@@ -5930,7 +5930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484374, guid: 21deaee02770f9b4fa49badd26fea725, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 113322, guid: 21deaee02770f9b4fa49badd26fea725, type: 2}
       propertyPath: m_IsActive
@@ -9198,6 +9198,7 @@ MonoBehaviour:
   minSwipeLength: 200
   gameController: {fileID: 1486932398}
   inGame: 1
+  characterSelection: 0
   titleCamera: {fileID: 1333415865}
 --- !u!1 &1225992539
 GameObject:
@@ -12786,6 +12787,7 @@ MonoBehaviour:
   deathPositionX: -2.75399995
   deathPositionY: .0469999984
   tricera: {fileID: 21300000, guid: bd57cc721bd729548a4407976c869cf2, type: 3}
+  triceraJump: {fileID: 21300002, guid: bd57cc721bd729548a4407976c869cf2, type: 3}
   triceraController: {fileID: 9100000, guid: 7f243983f80134ee8baaef5183c4cfa6, type: 2}
   isGameOver: 0
   guiText: {fileID: 101103910}
@@ -14155,7 +14157,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: EmissionModule.rate.scalar
@@ -14241,7 +14243,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452724, guid: ee864fc9d13d56f4090dc4d49854ca07, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22452724, guid: ee864fc9d13d56f4090dc4d49854ca07, type: 2}
       propertyPath: m_AnchoredPosition.x

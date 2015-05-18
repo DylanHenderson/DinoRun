@@ -158,6 +158,18 @@ public class PlayerController : MonoBehaviour {
 		return (speed - 5f)/(20f - 5f);
 	}
 
+	void OnTriggerEnter2D(Collider2D collisionInfo)
+	{
+		if(collisionInfo.name == "pit(Clone)")
+		{
+			Debug.Log ("Herre");
+			
+			// Diable collider
+			grounded = false;
+			planet.GetComponent<CircleCollider2D>().enabled = false;
+		}
+	}
+
 	void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
 		if(collisionInfo.collider.name != "moving-Sphere")
@@ -184,11 +196,6 @@ public class PlayerController : MonoBehaviour {
 					
 					movingBackround2.GetComponent<MoveBackground>().moving = false;
 					movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
-				}else if(collisionInfo.collider.name == "pit(Clone)")
-				{
-					// Diable collider
-					grounded = false;
-					transform.GetComponent<BoxCollider2D>().enabled = false;
 				}
 			
 			}

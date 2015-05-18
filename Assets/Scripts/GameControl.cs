@@ -13,21 +13,33 @@ public class GameControl : MonoBehaviour {
 	float score = 0f;                // Total score
 	int middle = 0;
 	public Sprite tricera;
+	public Sprite triceraJump;
 	public RuntimeAnimatorController triceraController;
+	Countdown gameCountdown;
 
 	public bool isGameOver = false;
 	public Text guiText;
 
 	// Use this for initialization
 	void Start () {
-		//guiText = GameObject.Find("Score").GetComponent<Text>();
+
+		gameCountdown = transform.GetComponent<Countdown> ();
 
 		if(PlayerPrefs.GetString("Dino").Equals("Triceratops"))
 		{
 			player.GetComponent<SpriteRenderer>().sprite = tricera;
 			player.GetComponent<Animator>().runtimeAnimatorController = triceraController;
 			player.GetComponent<PlayerController>().dinoType = PlayerController.DinoType.Triceratops;
+			player.GetComponent<PlayerController>().defaultSprite = tricera;
+			player.GetComponent<PlayerController>().jump = triceraJump;
+
+			Vector2 offset = new Vector2(0.07017317f, -0.151162f);
+			Vector2 size = new Vector2(0.4421697f, 0.3538122f);
+			player.GetComponent<BoxCollider2D>().offset = offset;
+			player.GetComponent<BoxCollider2D>().size = size;
 		}
+
+		gameCountdown.startCountdown ();
 	}
 	
 	// Update is called once per frame

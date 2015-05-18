@@ -231,7 +231,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0aad8b08ac1d12743b51556f3996d990, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .544117689, g: .312067509, b: .312067509, a: 1}
 --- !u!4 &497321352
 Transform:
   m_ObjectHideFlags: 0
@@ -537,6 +537,7 @@ MonoBehaviour:
   minSwipeLength: 200
   gameController: {fileID: 0}
   inGame: 0
+  characterSelection: 0
   titleCamera: {fileID: 1333415865}
 --- !u!1 &1327981220
 GameObject:

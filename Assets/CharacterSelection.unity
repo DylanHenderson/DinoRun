@@ -233,7 +233,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0aad8b08ac1d12743b51556f3996d990, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .544117689, g: .312067509, b: .312067509, a: 1}
 --- !u!4 &497321352
 Transform:
   m_ObjectHideFlags: 0
@@ -274,8 +274,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.5295067, y: 6.2760067, z: 20}
-  m_Center: {x: 5.73524666, y: -2.51116276, z: 0}
+  m_Size: {x: 19.1212749, y: 16.2255516, z: 20}
+  m_Center: {x: 10.2707815, y: -12.1992474, z: 0}
 --- !u!102 &569802218
 TextMesh:
   serializedVersion: 3
@@ -283,7 +283,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569802216}
-  m_Text: Play
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -328,7 +328,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569802216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.245000005, y: 2.62299991, z: 0}
+  m_LocalPosition: {x: -.529999971, y: 1.95000005, z: 0}
   m_LocalScale: {x: .0500000007, y: .0500000007, z: .0500000007}
   m_Children: []
   m_Father: {fileID: 582359713}
@@ -1089,7 +1089,9 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1784283913}
-  m_Text: Choose Your Dinosaur
+  m_Text: 'Select your dinosaur
+
+    Tap it to continue'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
