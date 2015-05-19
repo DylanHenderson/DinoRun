@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 
 	public DinoType dinoType;
 	public Transform planet;
+	public Transform doom;
 	public Transform collidingObject;
 	public Transform movingBackround1;
 	public Transform movingBackround2;
@@ -205,10 +206,6 @@ public class PlayerController : MonoBehaviour {
 
 
 
-				Debug.Log ("Tag: " + collisionInfo.collider.tag);
-
-
-
 				// World speed stuff
 				if(collisionInfo.collider.tag == "hard" )
 				{
@@ -223,6 +220,7 @@ public class PlayerController : MonoBehaviour {
 					movingBackround2.GetComponent<MoveBackground>().moving = false;
 					movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
 
+					doom.GetComponent<Rotate>().rotate_speed -= 0.005f;
 				}
 
 
@@ -258,13 +256,8 @@ public class PlayerController : MonoBehaviour {
 					planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed * decreasedSpeed;
 					
 					Invoke ("resetSpeed", decreasedSpeed);
-					
+					doom.GetComponent<Rotate>().rotate_speed -= 0.0025f;
 				}
-
-
-
-
-
 			
 			}
 
@@ -279,7 +272,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			animator.SetFloat ("Speed", 0f);
 			CancelInvoke ("resetSpeed");
-
+			doom.GetComponent<Rotate>().rotate_speed -= 0.0005f;
 		}
 
 		if(collisionInfo.collider.tag == "bush" ){

@@ -21,8 +21,11 @@ public class Rotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (rotating) {
+		if (rotating && !doom) {
 			transform.Rotate (Vector3.forward * Time.deltaTime * rotate_speed, Space.Self);
+			previous_speed = rotate_speed;
+		} else if(rotating && doom) {
+			transform.Rotate (Vector3.forward * rotate_speed, Space.Self);
 			previous_speed = rotate_speed;
 		}
 	}
@@ -31,22 +34,12 @@ public class Rotate : MonoBehaviour {
 
 		if (!doom) {
 			rotate_speed += speed_increase;
-		} else {
-			rotate_speed = (planet.GetComponent<Rotate>().originalSpeed - planet.GetComponent<Rotate>().rotate_speed) * 0.7f;
-
-			if(rotate_speed > 0)
-			{
-				rotate_speed *= -1;
-			}
 		}
 	}
 
 	void setOriginal(){
 		if (!doom && rotate_speed > previous_speed) {
 			originalSpeed = rotate_speed;
-		} else if (doom && rotate_speed < previous_speed) {
-			originalSpeed = rotate_speed;
-		}
-
+		} 
 	}
 }
