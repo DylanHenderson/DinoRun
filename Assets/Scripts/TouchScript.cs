@@ -39,14 +39,14 @@ public class TouchScript : MonoBehaviour {
 	void Update () {	
 
 		//Check if we are running either in the Unity editor or in a standalone build.
-		//#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
+		#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 		editorClick ();
-		//#endif
+		#endif
 
 		//Check if we are running on iOS, Android, Windows Phone 8 or Unity iPhone
-		//#if UNITY_IOS || UNITY_ANDROID || UNITY_IPHONE
-		//mobileTouch ();
-		//#endif
+		#if UNITY_IOS || UNITY_ANDROID || UNITY_IPHONE
+		mobileTouch ();
+		#endif
 	}
 
 	void editorClick()
@@ -73,14 +73,13 @@ public class TouchScript : MonoBehaviour {
 					currentSwipe = new Vector3 (secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
 					
 					// Make sure it was a legit swipe, not a tap
-					if (currentSwipe.magnitude < minSwipeLength) {
+					if (currentSwipe.magnitude > minSwipeLength) {
 						swipeDirection = Swipe.None;
-						return;
+						currentSwipe.Normalize ();
+						swipeAction(currentSwipe.x, currentSwipe.y);
+					}else{
+						tapAction();
 					}
-
-					currentSwipe.Normalize ();
-
-					swipeAction(currentSwipe.x, currentSwipe.y);
 					
 					break;
 				}
@@ -109,9 +108,12 @@ public class TouchScript : MonoBehaviour {
 					currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
 					
 					// Make sure it was a legit swipe, not a tap
-					if (currentSwipe.magnitude < minSwipeLength) {
+					if (currentSwipe.magnitude > minSwipeLength) {
 						swipeDirection = Swipe.None;
-						return;
+						currentSwipe.Normalize ();
+						swipeAction(currentSwipe.x, currentSwipe.y);
+					}else{
+						tapAction();
 					}
 					
 					currentSwipe.Normalize();
@@ -127,6 +129,21 @@ public class TouchScript : MonoBehaviour {
 		}
 	}
 
+	void tapAction()
+	{
+
+		// Activate action
+		if(player.GetComponent<PlayerController>().isUsingPower())
+		{
+			player.GetComponent<PlayerController>().cancelPower();
+		}else if(player.GetComponent<PlayerController>().grounded || (player.position.y > originalPositon.y && player.GetComponent<PlayerController>().collidingObject != null))
+		{
+			//player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
+			player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 6);
+		}
+	}
+	
+	
 	void previousDino()
 	{
 		planet.transform.Rotate (Vector3.forward   * 180f, Space.Self);
@@ -164,17 +181,6 @@ public class TouchScript : MonoBehaviour {
 	{
 		switch(name){
 		case "Tap Area":	
-
-			if(player.GetComponent<PlayerController>().isUsingPower())
-			{
-				player.GetComponent<PlayerController>().cancelPower();
-			}
-
-			if(player.GetComponent<PlayerController>().grounded || (player.position.y > originalPositon.y && player.GetComponent<PlayerController>().collidingObject != null))
-			{
-				//player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
-				player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 6);
-			}
 
 			firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
