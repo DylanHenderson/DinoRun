@@ -10559,8 +10559,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 160.211411, y: 134.797089, z: 319.999969}
-  m_Center: {x: .907546997, y: -.907659531, z: -200.000031}
+  m_Size: {x: 160.211411, y: 134.797089, z: 280}
+  m_Center: {x: .907546997, y: -.907659531, z: -180}
 --- !u!222 &1304689724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10731,8 +10731,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 107.567474, y: 138.875031, z: 319.999969}
-  m_Center: {x: .000106811523, y: -.684007645, z: -200.000031}
+  m_Size: {x: 107.567474, y: 138.875031, z: 280}
+  m_Center: {x: .000106811523, y: -.684007645, z: -180}
 --- !u!222 &1314349624
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16195,8 +16195,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 138.427689, y: 138.427536, z: 319.999969}
-  m_Center: {x: -.907627106, y: -.907598495, z: -200.000031}
+  m_Size: {x: 138.427689, y: 138.427536, z: 280}
+  m_Center: {x: -.907627106, y: -.907598495, z: -180}
 --- !u!222 &2047712963
 CanvasRenderer:
   m_ObjectHideFlags: 0

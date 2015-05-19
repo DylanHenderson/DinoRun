@@ -58,7 +58,7 @@ public class PowerUpBar : MonoBehaviour {
 			CancelInvoke("decreasePower");
 			InvokeRepeating ("increasePower",0.5f,0.5f);
 		} else {
-			myImage.fillAmount -= 0.01f;
+			myImage.fillAmount -= 0.005f;
 		}
 		
 	}
