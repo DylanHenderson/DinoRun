@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject bird_swoosh;
 	public Transform bird_swoosh_start;
 	public bool inGame = true;
+	public GameObject touchcontrols;
 
 	private Animator animator;
 	private Rigidbody2D r2;
@@ -37,10 +38,12 @@ public class PlayerController : MonoBehaviour {
 	private float current_dino_x;
 	private SpriteRenderer spr;
 	private bool red;
+	private TouchScript ts;
 	
 	void Start () {
 		red = false;
 		spr = gameObject.GetComponent<SpriteRenderer>();
+		ts = touchcontrols.GetComponent<TouchScript>();
 		animator = this.GetComponent<Animator>();
 		r2 = GetComponent<Rigidbody2D>();
 		usingPower = false;
@@ -61,6 +64,11 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate()
 	{
+		print (ts.paused);
+		if (ts.paused == true) {
+			gamePaused ();
+		}
+
 		// Gravity
 		r2.AddForce ((planet.position - transform.position).normalized * gravity);
 
@@ -276,6 +284,11 @@ public class PlayerController : MonoBehaviour {
 							decreasedSpeed = 0.75f;
 						}
 
+
+						if(movingBackround1.GetComponent<MoveBackground>().moving ==true){
+							doom.GetComponent<Rotate>().rotate_speed -= 0.0025f;
+						}
+
 						Physics2D.IgnoreCollision(collisionInfo.collider, GetComponent<BoxCollider2D>());
 						//planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
 						movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
@@ -292,7 +305,9 @@ public class PlayerController : MonoBehaviour {
 						planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed * decreasedSpeed;
 						
 						Invoke ("resetSpeed", decreasedSpeed);
-						doom.GetComponent<Rotate>().rotate_speed -= 0.0025f;
+
+
+
 					}
 				}
 			
@@ -309,7 +324,9 @@ public class PlayerController : MonoBehaviour {
 		{
 			animator.SetFloat ("Speed", 0f);
 			CancelInvoke ("resetSpeed");
-			doom.GetComponent<Rotate>().rotate_speed -= 0.0005f;
+
+				doom.GetComponent<Rotate>().rotate_speed -= 0.0005f;
+
 		}
 
 		if(collisionInfo.collider.tag == "bush" ){
@@ -337,11 +354,20 @@ public class PlayerController : MonoBehaviour {
 			movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed;
 			Invoke ("resetSpeed",0.5f);
 
+
+
 		}
+
+		doom.GetComponent<Rotate>().rotate_speed = 0.0f;
 
 
 
 		collidingObject = null;
+	}
+
+	public void gamePaused(){
+		doom.GetComponent<Rotate>().rotate_speed = 0.0f;
+
 	}
 
 	void resetSpeed(){

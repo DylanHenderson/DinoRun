@@ -11,6 +11,7 @@ public class TouchScript : MonoBehaviour {
 	public float speed = 100f;
 	public float minSwipeLength = 200f;
 	public GameObject gameController;
+	public GameObject playerController;
 	Countdown gameCountdown;
 	Vector2 firstPressPos;
 	Vector2 secondPressPos;
@@ -19,13 +20,16 @@ public class TouchScript : MonoBehaviour {
 	private Vector3 originalPositon;
 	public bool inGame = true;
 	public bool characterSelection = false;
-
+	public bool paused = false;
 	private RaycastHit hit;
 	private Ray ray;
+	private PlayerController pc;
 	public Camera titleCamera;
 
 	// Use this for initialization
 	void Start () {
+
+		pc = playerController.GetComponent<PlayerController>();
 
 		if (inGame) {
 			gameCountdown = gameController.GetComponent<Countdown> ();
@@ -176,7 +180,8 @@ public class TouchScript : MonoBehaviour {
 
 	}
 
-	
+
+
 	void buttonTouch(string name)
 	{
 		switch(name){
@@ -188,11 +193,14 @@ public class TouchScript : MonoBehaviour {
 		case "Pause":
 			Time.timeScale = 0;
 			pauseScreen.gameObject.SetActive(true);
+			pc.gamePaused ();
+
 			break;
 		case "Play":
 			Time.timeScale = 1;
 			gameCountdown.startCountdown();
 			pauseScreen.gameObject.SetActive(false);
+			Invoke ("unpause",3);
 			break;
 		case "Previous":
 			previousDino();

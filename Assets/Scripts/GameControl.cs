@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour {
 
+	public GameObject touchcontrols;
 	public GameObject gameOverScreen;
 	public Transform player;
 	public GUISkin skin;
