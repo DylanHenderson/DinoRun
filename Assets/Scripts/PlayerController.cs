@@ -35,8 +35,12 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 end_point;
 	private float original_bird_x;
 	private float current_dino_x;
+	private SpriteRenderer spr;
+	private bool red;
 	
 	void Start () {
+		red = false;
+		spr = gameObject.GetComponent<SpriteRenderer>();
 		animator = this.GetComponent<Animator>();
 		r2 = GetComponent<Rigidbody2D>();
 		usingPower = false;
@@ -69,19 +73,31 @@ public class PlayerController : MonoBehaviour {
 			//when player is usingPower and still has power left
 			if (usingPower && pb.canUsePower ()) {
 				
-				gameObject.transform.position = new Vector2 (current_dino_x, original_height + 1);
-				end_point = new Vector3 (gameObject.transform.position.x, bird.transform.position.y, bird.transform.position.z);
-				
-				
-				
-				bird.transform.position = Vector3.Lerp (start_point.position, end_point, bird_speed);
+				if(dinoType == DinoType.Raptor){
+					gameObject.transform.position = new Vector2 (current_dino_x, original_height + 1);
+					end_point = new Vector3 (gameObject.transform.position.x, bird.transform.position.y, bird.transform.position.z);
+					
+					
+					
+					bird.transform.position = Vector3.Lerp (start_point.position, end_point, bird_speed);
+				}else{
+					
+					red = true;
+				}
 				
 				//can no longer fly push to ground, send bird back to position	
 			} else if (inGame) {
 				usingPower = false;
-				gravity = original_gravity;
-				//pb.cancelDecrease();
-				bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
+				if(dinoType == DinoType.Raptor){
+					usingPower = false;
+					gravity = original_gravity;
+					//pb.cancelDecrease();
+					bird.transform.position = new Vector2 (original_bird_x, bird.transform.position.y);
+				}else{
+					spr.color = new Color(255f, 255f, 255f, 1f);
+					red = false;
+					
+				}
 			}
 			
 			// Cancel animation while jumping
@@ -144,7 +160,14 @@ public class PlayerController : MonoBehaviour {
 				
 				Destroy (swoosh, 5);
 			}else{
-
+				usingPower = true;
+				red = true;
+				//gravity = 0;
+				pb.initiateDecrease();
+				//current_dino_x = gameObject.transform.position.x;
+				//GameObject swoosh = Instantiate(bird_swoosh,bird_swoosh_start.position,Quaternion.identity) as GameObject;
+				spr.color = new Color(255f, 0f, 0f, 1f);
+				//Destroy (swoosh, 5);
 			}
 		}
 	}
@@ -209,54 +232,68 @@ public class PlayerController : MonoBehaviour {
 				// World speed stuff
 				if(collisionInfo.collider.tag == "hard" )
 				{
-					print ("hard collider");
-					animator.SetFloat ("Speed", 0f);
-					planet.GetComponent<Rotate>().rotating = false;
-					//planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
-					
-					movingBackround1.GetComponent<MoveBackground>().moving = false;
-					movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
-					
-					movingBackround2.GetComponent<MoveBackground>().moving = false;
-					movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
-
-					doom.GetComponent<Rotate>().rotate_speed -= 0.005f;
+					if(red){
+						Destroy (collisionInfo.collider.gameObject);
+						
+					}else{
+						
+						
+						
+						print ("hard collider");
+						animator.SetFloat ("Speed", 0f);
+						planet.GetComponent<Rotate>().rotating = false;
+						//planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
+						
+						movingBackround1.GetComponent<MoveBackground>().moving = false;
+						movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
+						
+						movingBackround2.GetComponent<MoveBackground>().moving = false;
+						movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
+						
+					}
 				}
 
 
 
 				if(collisionInfo.collider.tag == "bush" ){
-					
-					print ("colliding");
-					animator.SetFloat ("Speed", 0.1f);
 
-					float decreasedSpeed = 0f;
+					if(red){
+						Destroy (collisionInfo.collider.gameObject);
+						
+					}else{
 
-					if(dinoType == DinoType.Raptor)
-					{
-						decreasedSpeed = 0.5f;
-					}else
-					{
-						decreasedSpeed = 0.75f;
+
+						print ("colliding");
+						animator.SetFloat ("Speed", 0.1f);
+
+						float decreasedSpeed = 0f;
+
+						if(dinoType == DinoType.Raptor)
+						{
+							decreasedSpeed = 0.5f;
+						}else
+						{
+							decreasedSpeed = 0.75f;
+						}
+
+						Physics2D.IgnoreCollision(collisionInfo.collider, GetComponent<BoxCollider2D>());
+						//planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
+						movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
+						movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
+						
+						
+						movingBackround1.GetComponent<MoveBackground>().moving = true;
+						movingBackround1.GetComponent<MoveBackground>().move_speed = movingBackround1.GetComponent<MoveBackground>().originalSpeed * decreasedSpeed;
+						
+						movingBackround2.GetComponent<MoveBackground>().moving = true;
+						movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed * decreasedSpeed;
+						
+						planet.GetComponent<Rotate>().rotating = true;
+						planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed * decreasedSpeed;
+						
+						Invoke ("resetSpeed", decreasedSpeed);
+						doom.GetComponent<Rotate>().rotate_speed -= 0.0025f;
 					}
-
-					Physics2D.IgnoreCollision(collisionInfo.collider, GetComponent<BoxCollider2D>());
-					//planet.GetComponent<Rotate>().originalSpeed = planet.GetComponent<Rotate>().rotate_speed;
-					movingBackround1.GetComponent<MoveBackground>().originalSpeed = movingBackround1.GetComponent<MoveBackground>().move_speed;
-					movingBackround2.GetComponent<MoveBackground>().originalSpeed = movingBackround2.GetComponent<MoveBackground>().move_speed;
-					
-					
-					movingBackround1.GetComponent<MoveBackground>().moving = true;
-					movingBackround1.GetComponent<MoveBackground>().move_speed = movingBackround1.GetComponent<MoveBackground>().originalSpeed * decreasedSpeed;
-					
-					movingBackround2.GetComponent<MoveBackground>().moving = true;
-					movingBackround2.GetComponent<MoveBackground>().move_speed = movingBackround2.GetComponent<MoveBackground>().originalSpeed * decreasedSpeed;
-					
-					planet.GetComponent<Rotate>().rotating = true;
-					planet.GetComponent<Rotate>().rotate_speed = planet.GetComponent<Rotate>().originalSpeed * decreasedSpeed;
-					
-					Invoke ("resetSpeed", decreasedSpeed);
-					doom.GetComponent<Rotate>().rotate_speed -= 0.0025f;
 				}
 			
 			}
