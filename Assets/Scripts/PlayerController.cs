@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		print (ts.paused);
+		//print (ts.paused);
 		if (ts.paused == true) {
 			gamePaused ();
 		}
@@ -110,7 +110,8 @@ public class PlayerController : MonoBehaviour {
 			
 			// Cancel animation while jumping
 			if ((transform.position.y < 1.5f && !grounded)) {
-				
+
+				ts.playLandSound();
 				grounded = true;
 				animator.enabled = true;
 				transform.GetComponent<SpriteRenderer> ().sprite = defaultSprite;
@@ -240,6 +241,8 @@ public class PlayerController : MonoBehaviour {
 				// World speed stuff
 				if(collisionInfo.collider.tag == "hard" )
 				{
+					ts.playHitSound();
+
 					if(red){
 						Destroy (collisionInfo.collider.gameObject);
 						
@@ -264,6 +267,8 @@ public class PlayerController : MonoBehaviour {
 
 
 				if(collisionInfo.collider.tag == "bush" ){
+
+					ts.playHitSound();
 
 					if(red){
 						Destroy (collisionInfo.collider.gameObject);

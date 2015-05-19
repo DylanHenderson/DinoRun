@@ -25,7 +25,11 @@ public class TouchScript : MonoBehaviour {
 	private Ray ray;
 	private PlayerController pc;
 	public Camera titleCamera;
-
+	AudioSource sound;
+	public AudioClip jumpSound;
+	public AudioClip hitClip;
+	public AudioClip landClip;
+	
 	// Use this for initialization
 	void Start () {
 
@@ -37,6 +41,10 @@ public class TouchScript : MonoBehaviour {
 			PlayerPrefs.SetString("Dino", "Raptor");
 		}
 		originalPositon = player.position;
+
+		if(inGame)
+		{sound = transform.GetComponent<AudioSource> ();
+		}
 	}
 	
 	// Update is called once per frame
@@ -133,6 +141,18 @@ public class TouchScript : MonoBehaviour {
 		}
 	}
 
+	public void playHitSound()
+	{
+		sound.clip = hitClip;
+		sound.Play();
+	}
+
+	public void playLandSound()
+	{
+		sound.clip = landClip;
+		sound.Play();
+	}
+
 	void tapAction()
 	{
 
@@ -144,6 +164,8 @@ public class TouchScript : MonoBehaviour {
 		{
 			//player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
 			player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 6);
+			sound.clip = jumpSound;
+			sound.Play();
 		}
 	}
 	
