@@ -8186,8 +8186,10 @@ MonoBehaviour:
   speed: 300
   minSwipeLength: 200
   gameController: {fileID: 1486932398}
+  playerController: {fileID: 1327981220}
   inGame: 1
   characterSelection: 0
+  paused: 0
   titleCamera: {fileID: 1333415865}
 --- !u!1 &1190620343
 GameObject:
@@ -10798,6 +10800,7 @@ MonoBehaviour:
   bird_swoosh: {fileID: 100000, guid: 71dd3f6129bb9447db0ee3a8b88aec03, type: 2}
   bird_swoosh_start: {fileID: 626997733}
   inGame: 1
+  touchcontrols: {fileID: 1069745658}
 --- !u!1 &1333415861
 GameObject:
   m_ObjectHideFlags: 0
@@ -13146,6 +13149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d401ed7d45c501f4eacf1638c81d2e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchcontrols: {fileID: 0}
   gameOverScreen: {fileID: 634403118}
   player: {fileID: 1327981223}
   skin: {fileID: 11400000, guid: 9a248991f18c3ed4aa9c2932789e6452, type: 2}
