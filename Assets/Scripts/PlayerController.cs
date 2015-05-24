@@ -25,8 +25,9 @@ public class PlayerController : MonoBehaviour {
 	public Transform bird_swoosh_start;
 	public bool inGame = true;
 	public GameObject touchcontrols;
+	public bool onIce = false;
 
-	private Animator animator;
+	public Animator animator;
 	private Rigidbody2D r2;
 	private float worldSpeed = 0;
 	private bool usingPower;
@@ -215,8 +216,22 @@ public class PlayerController : MonoBehaviour {
 			// Disable world collider
 			planet.GetComponent<CircleCollider2D>().enabled = false;
 		}
+
+		
+		if(collisionInfo.name == "Ice Water(Clone)")
+		{
+			onIce = true;
+		}
 	}
 
+	void OnTriggerExit2D(Collider2D collisionInfo)
+	{
+		if(collisionInfo.name == "Ice Water(Clone)")
+		{
+			onIce = true;
+		}
+	}
+	
 	void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
 		if(collisionInfo.collider.name != "moving-Sphere")
@@ -266,8 +281,7 @@ public class PlayerController : MonoBehaviour {
 					}
 				}
 
-
-
+				
 				if(collisionInfo.collider.tag == "bush" ){
 
 					ts.playHitSound();
@@ -327,13 +341,13 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D collisionInfo)
 	{
+		
 		if(collisionInfo.collider.tag == "hard")
 		{
 			animator.SetFloat ("Speed", 0f);
 			CancelInvoke ("resetSpeed");
 
-				doom.GetComponent<Rotate>().rotate_speed -= 0.0005f;
-
+			doom.GetComponent<Rotate>().rotate_speed -= 0.0005f;
 		}
 
 		if(collisionInfo.collider.tag == "bush" ){
@@ -365,6 +379,12 @@ public class PlayerController : MonoBehaviour {
 
 		}
 
+		if(collisionInfo.collider.tag == "ice" )
+		{
+			onIce = false;
+		}
+
+		
 		doom.GetComponent<Rotate>().rotate_speed = 0.0f;
 
 
