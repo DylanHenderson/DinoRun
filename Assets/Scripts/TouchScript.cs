@@ -211,6 +211,7 @@ public class TouchScript : MonoBehaviour {
 
 			firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
+
 			break;
 		case "Pause":
 			Time.timeScale = 0;

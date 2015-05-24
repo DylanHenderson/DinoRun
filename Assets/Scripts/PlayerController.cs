@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour {
 		r2.AddForce ((planet.position - transform.position).normalized * gravity);
 
 		if (inGame) {
+
 			// Jumping
 			if (Input.GetKeyDown ("space") && grounded) {
 				r2.AddForce ((planet.position - transform.position).normalized * speed * -1);
@@ -142,12 +143,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update()
-	{
-
-	
-
-
-	}
+	{}
 
 	public bool isUsingPower()
 	{
@@ -209,8 +205,14 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(collisionInfo.name == "pit(Clone)")
 		{
-			// Diable collider
-			grounded = false;
+			Debug.Log("Here");
+
+			// Activate the child collider
+			foreach (Transform child in collisionInfo.transform) {
+				child.gameObject.SetActive(true);
+			}
+
+			// Disable world collider
 			planet.GetComponent<CircleCollider2D>().enabled = false;
 		}
 	}
