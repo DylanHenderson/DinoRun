@@ -20,6 +20,8 @@ public class GameControl : MonoBehaviour {
 	public Sprite triceraJump;
 	public RuntimeAnimatorController triceraController;
 	Countdown gameCountdown;
+	public GameObject embers;
+	public GameObject snow;
 
 
 	public bool isGameOver = false;
@@ -64,8 +66,10 @@ public class GameControl : MonoBehaviour {
 		score = totalTimeElapsed * 10; 
 
 		// Change over to ice world
-		if(score >= 500)
+		if(score >= 5)
 		{
+			embers.SetActive(false);
+			snow.SetActive(true);
 			world.GetComponent<spawnObstacles>().setIceSpawning();
 			doom.GetComponent<Rotate>().setIceSpawning();
 		}
