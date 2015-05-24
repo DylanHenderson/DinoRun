@@ -69,7 +69,7 @@ public class spawnObstacles : MonoBehaviour {
 				Invoke("spawnTree",1);
 			}else if(obstacleChoice == 2){
 				Invoke("spawnBush",1);
-			}else{
+			}else if (!iceWorld){
 				Invoke("spawnPit",1);
 			}
 
@@ -87,7 +87,7 @@ public class spawnObstacles : MonoBehaviour {
 				Invoke("spawnTree",3);
 			}else if(obstacleChoice == 2){
 				Invoke("spawnBush",2);
-			}else{
+			}else if(!iceWorld){
 				Invoke("spawnPit",3);
 			}
 			
@@ -105,7 +105,7 @@ public class spawnObstacles : MonoBehaviour {
 				Invoke("spawnTree",5);
 			}else if(obstacleChoice == 2){
 				Invoke("spawnBush",4);
-			}else{
+			}else if (!iceWorld){
 				Invoke("spawnPit",5);
 			}
 			

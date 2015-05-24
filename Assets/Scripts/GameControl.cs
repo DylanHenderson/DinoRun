@@ -65,7 +65,7 @@ public class GameControl : MonoBehaviour {
 		score = totalTimeElapsed * 10; 
 
 		// Change over to ice world
-		if(score >= 50)
+		if(score >= 500)
 		{
 			embers.SetActive(false);
 			snow.SetActive(true);

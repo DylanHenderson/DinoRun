@@ -5,6 +5,7 @@ public class Doom : MonoBehaviour {
 
 	public GameObject player;
 	public GameObject world;
+	public Sprite frozenWater;
 
 	bool freeze = false;
 
@@ -21,9 +22,9 @@ public class Doom : MonoBehaviour {
 		{	
 			if(child.name == "Ice Water(Clone)")
 			{
-
-				float childRotation = child.rotation.z;
-				float doomRotation = transform.rotation.z;
+		
+				float childRotation = child.rotation.eulerAngles.z;
+				float doomRotation = transform.rotation.eulerAngles.z;
 				float result = 0f;
 
 				if(childRotation < 0)
@@ -43,16 +44,15 @@ public class Doom : MonoBehaviour {
 					result *=-1;
 				}
 
-				if(result < 0.0045f)
+				if(result < 2f && doomRotation > 0f && doomRotation < 358f )
 				{
+					child.GetComponent<SpriteRenderer>().sprite = frozenWater;
 					freeze = true;
-				}else{
-					freeze = false;
 				}
 			}
 		}
 
-		if(player.GetComponent<PlayerController>().onIce && freeze  && transform.rotation.x >= -0.00410922f)
+		if(player.GetComponent<PlayerController>().onIce && freeze)
 		{
 			player.GetComponent<PlayerController>().animator.SetFloat ("Speed", 0f);
 			player.GetComponent<PlayerController>().animator.enabled = false;

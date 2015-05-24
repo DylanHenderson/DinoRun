@@ -11365,6 +11365,11 @@ Prefab:
       propertyPath: ice_prefab
       value: 
       objectReference: {fileID: 109694, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+    - target: {fileID: 11466378, guid: c16b22114d0386741ac79010bff6e078, type: 2}
+      propertyPath: iceSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1eb674c9ff93efa4cb24d8297f5e5923,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c16b22114d0386741ac79010bff6e078, type: 2}
   m_IsPrefabParent: 0
@@ -11462,6 +11467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1327981220}
   world: {fileID: 251836083}
+  frozenWater: {fileID: 21300000, guid: ba4fb82c5afc48b4aa94787b888bad19, type: 3}
 --- !u!1 &969454055
 GameObject:
   m_ObjectHideFlags: 0
@@ -13617,7 +13623,7 @@ MonoBehaviour:
   player: {fileID: 1327981223}
   planet: {fileID: 251836086}
   pauseScreen: {fileID: 1201396054}
-  speed: 300
+  speed: 200
   minSwipeLength: 200
   gameController: {fileID: 1486932398}
   playerController: {fileID: 1327981220}
@@ -24317,7 +24323,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: EmissionModule.rate.scalar

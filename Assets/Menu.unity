@@ -124,6 +124,8 @@ MonoBehaviour:
   rotating: 1
   doom: 0
   planet: {fileID: 0}
+  iceDoomWave: {fileID: 0}
+  originalCameraPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &251836085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -190,8 +192,16 @@ MonoBehaviour:
   tree_prefab: {fileID: 0}
   pit: {fileID: 0}
   bush_prefab: {fileID: 0}
-  world: {fileID: 251836086}
   fire_prefab: {fileID: 0}
+  ice_prefab: {fileID: 0}
+  ice_rock_prefab: {fileID: 0}
+  ice_tree_prefab: {fileID: 0}
+  ice_pit: {fileID: 0}
+  ice_bush_prefab: {fileID: 0}
+  ice_snow_prefab: {fileID: 0}
+  iceWorld: 0
+  world: {fileID: 251836086}
+  iceSprite: {fileID: 0}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
 --- !u!1 &497321350
@@ -415,6 +425,8 @@ MonoBehaviour:
   bird_swoosh_start: {fileID: 0}
   inGame: 0
   touchcontrols: {fileID: 1069745658}
+  onIce: 0
+  animator: {fileID: 0}
 --- !u!50 &645570828
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -685,6 +697,8 @@ MonoBehaviour:
   bird_swoosh_start: {fileID: 0}
   inGame: 0
   touchcontrols: {fileID: 1069745658}
+  onIce: 0
+  animator: {fileID: 0}
 --- !u!1 &1333415861
 GameObject:
   m_ObjectHideFlags: 0
