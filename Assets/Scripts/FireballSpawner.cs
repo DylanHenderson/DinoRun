@@ -7,7 +7,7 @@ public class FireballSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("spawnFireball", 1,10);
+		InvokeRepeating ("spawnFireball", 1,21);
 	}
 	
 	// Update is called once per frame
