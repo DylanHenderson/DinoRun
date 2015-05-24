@@ -3470,7 +3470,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &552543107
 GameObject:
   m_ObjectHideFlags: 0
@@ -5609,7 +5609,7 @@ Transform:
   - {fileID: 1392619278}
   - {fileID: 1069745659}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &597579977
 GameObject:
   m_ObjectHideFlags: 0
@@ -11301,36 +11301,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437586, guid: c16b22114d0386741ac79010bff6e078, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 117840, guid: c16b22114d0386741ac79010bff6e078, type: 2}
       propertyPath: m_Name
       value: moving-Sphere
       objectReference: {fileID: 0}
-    - target: {fileID: 11466378, guid: c16b22114d0386741ac79010bff6e078, type: 2}
-      propertyPath: ice_tree_prefab
-      value: 
-      objectReference: {fileID: 167882, guid: 615740b5220438c4482f30fbb1d9787b, type: 2}
-    - target: {fileID: 11466378, guid: c16b22114d0386741ac79010bff6e078, type: 2}
-      propertyPath: ice_rock_prefab
-      value: 
-      objectReference: {fileID: 154132, guid: 0d4f8801c0a1cb34e8e0723e41a64697, type: 2}
-    - target: {fileID: 11466378, guid: c16b22114d0386741ac79010bff6e078, type: 2}
-      propertyPath: ice_pit
-      value: 
-      objectReference: {fileID: 167882, guid: 8fdea27a23fb97f48bf55cc5544a9cf1, type: 2}
-    - target: {fileID: 11466378, guid: c16b22114d0386741ac79010bff6e078, type: 2}
-      propertyPath: ice_bush_prefab
-      value: 
-      objectReference: {fileID: 192064, guid: 6b75c8cd35b18154ba169403fbe7c96d, type: 2}
-    - target: {fileID: 11466378, guid: c16b22114d0386741ac79010bff6e078, type: 2}
-      propertyPath: ice_snow_prefab
-      value: 
-      objectReference: {fileID: 100008, guid: 1dd9a5f2132814a52bfd0045ee146d2a, type: 2}
-    - target: {fileID: 11469128, guid: c16b22114d0386741ac79010bff6e078, type: 2}
-      propertyPath: snowball
-      value: 
-      objectReference: {fileID: 174078, guid: 6827ebfd1d0caea45a3db38ef96f2d61, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c16b22114d0386741ac79010bff6e078, type: 2}
   m_IsPrefabParent: 0
@@ -11367,7 +11343,7 @@ Transform:
   - {fileID: 317713992}
   - {fileID: 1035251915}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &950893993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12471,6 +12447,48 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .800000012
+--- !u!1001 &1013647878
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 436428, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .0199999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 436428, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.69999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 436428, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 436428, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436428, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436428, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -.333738416
+      objectReference: {fileID: 0}
+    - target: {fileID: 436428, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .942665756
+      objectReference: {fileID: 0}
+    - target: {fileID: 436428, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9bae84b944baa434ba24de7fa21f63f4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1035251914
 GameObject:
   m_ObjectHideFlags: 0
@@ -17254,7 +17272,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!50 &1327981224
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -17400,7 +17418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &1333415867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20745,7 +20763,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!114 &1486932401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22972,7 +22990,7 @@ Transform:
   m_Children:
   - {fileID: 626997733}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1 &1574137812
 GameObject:
   m_ObjectHideFlags: 0
@@ -24198,7 +24216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1599747316
 GameObject:
   m_ObjectHideFlags: 0
@@ -24228,7 +24246,7 @@ Transform:
   - {fileID: 2125520815}
   - {fileID: 1574137817}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1001 &1661427727
 Prefab:
   m_ObjectHideFlags: 0
@@ -24357,7 +24375,7 @@ RectTransform:
   - {fileID: 1201396054}
   - {fileID: 634403119}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -25568,7 +25586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &1859067786
 GameObject:
   m_ObjectHideFlags: 0
@@ -25695,7 +25713,7 @@ Transform:
   - {fileID: 819137258}
   - {fileID: 1878281579}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1872713227
 MonoBehaviour:
   m_ObjectHideFlags: 0

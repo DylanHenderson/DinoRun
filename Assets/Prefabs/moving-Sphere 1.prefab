@@ -60,8 +60,14 @@ MonoBehaviour:
   tree_prefab: {fileID: 167882, guid: 75704945c2bfa784f994fc0d0f8e4bf0, type: 2}
   pit: {fileID: 167882, guid: d74cbcd9bee20ca47ac1f3d7ab4bfe7a, type: 2}
   bush_prefab: {fileID: 192064, guid: 2cabf0592ff338e4ea87d81f1d852eeb, type: 2}
-  world: {fileID: 437586}
   fire_prefab: {fileID: 100008, guid: 1dd9a5f2132814a52bfd0045ee146d2a, type: 2}
+  ice_rock_prefab: {fileID: 154132, guid: 0d4f8801c0a1cb34e8e0723e41a64697, type: 2}
+  ice_tree_prefab: {fileID: 167882, guid: 615740b5220438c4482f30fbb1d9787b, type: 2}
+  ice_pit: {fileID: 167882, guid: 8fdea27a23fb97f48bf55cc5544a9cf1, type: 2}
+  ice_bush_prefab: {fileID: 192064, guid: 6b75c8cd35b18154ba169403fbe7c96d, type: 2}
+  ice_snow_prefab: {fileID: 100008, guid: 1dd9a5f2132814a52bfd0045ee146d2a, type: 2}
+  iceWorld: 0
+  world: {fileID: 437586}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
 --- !u!114 &11469128
@@ -76,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 174078, guid: 5c845463d6b86e7438b18dbce2d78f9a, type: 2}
+  snowball: {fileID: 174078, guid: 6827ebfd1d0caea45a3db38ef96f2d61, type: 2}
 --- !u!114 &11492462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,6 +101,8 @@ MonoBehaviour:
   rotating: 1
   doom: 0
   planet: {fileID: 0}
+  iceDoomWave: {fileID: 0}
+  originalCameraPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &21216262
 SpriteRenderer:
   m_ObjectHideFlags: 1
