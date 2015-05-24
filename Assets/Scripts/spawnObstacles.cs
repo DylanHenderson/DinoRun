@@ -7,8 +7,15 @@ public class spawnObstacles : MonoBehaviour {
 	public GameObject tree_prefab;
 	public GameObject pit;
 	public GameObject bush_prefab;
-	public Transform world;
 	public GameObject fire_prefab;
+
+	public GameObject ice_rock_prefab;
+	public GameObject ice_tree_prefab;
+	public GameObject ice_pit;
+	public GameObject ice_bush_prefab;
+	public GameObject ice_snow_prefab;
+
+	public Transform world;
 
 	public float x_spawn_position = 3.205652f;
 	public float y_spawn_position = 0.67f;
@@ -20,6 +27,15 @@ public class spawnObstacles : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void setIceSpawning()
+	{
+		rock_prefab = ice_rock_prefab;
+		tree_prefab = ice_tree_prefab;
+		pit = ice_pit;
+		bush_prefab = ice_bush_prefab;
+		fire_prefab = ice_snow_prefab;
 	}
 
 	void chooseObstacles(){

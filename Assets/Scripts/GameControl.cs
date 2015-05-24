@@ -9,6 +9,7 @@ public class GameControl : MonoBehaviour {
 	public GameObject powerUpBar;
 	public GameObject world;
 	public Transform player;
+	public GameObject doom;
 	public GUISkin skin;
 	public float deathPositionX = -2.754f;
 	public float deathPositionY = 0.047f;
@@ -59,7 +60,15 @@ public class GameControl : MonoBehaviour {
 			
 		// Calculate the score based on total time elapsed
 		totalTimeElapsed += Time.deltaTime;
+
 		score = totalTimeElapsed * 10; 
+
+		// Change over to ice world
+		if(score >= 500)
+		{
+			world.GetComponent<spawnObstacles>().setIceSpawning();
+			doom.GetComponent<Rotate>().setIceSpawning();
+		}
 
 		if((!isGameOver && player.position.x <= deathPositionX) || !isGameOver && player.position.y <= deathPositionY)
 		{

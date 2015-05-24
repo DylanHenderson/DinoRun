@@ -10,8 +10,9 @@ public class Rotate : MonoBehaviour {
 	public bool rotating = true;
 	public bool doom = false;
 	public GameObject planet;
+	public GameObject iceDoomWave;
 
-	private float previous_speed =5;
+	private float previous_speed = 5;
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("increaseSpeed",time_to_increase,time_to_increase);
@@ -28,6 +29,15 @@ public class Rotate : MonoBehaviour {
 			transform.Rotate (Vector3.forward * rotate_speed, Space.Self);
 			previous_speed = rotate_speed;
 		}
+	}
+
+	public void setIceSpawning()
+	{
+		iceDoomWave.GetComponent<Rotate> ().originalSpeed = originalSpeed;
+		iceDoomWave.GetComponent<Rotate> ().rotate_speed = rotate_speed;
+
+		iceDoomWave.SetActive (true);
+		gameObject.SetActive (false);
 	}
 
 	void increaseSpeed(){
