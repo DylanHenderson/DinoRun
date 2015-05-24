@@ -51,10 +51,12 @@ public class PlayerController : MonoBehaviour {
 		original_height = gameObject.transform.position.y;
 		//power_bar.GetComponent<PowerUpBar>().
 
+
 		if (inGame) {
 			pb = power_bar.GetComponent<PowerUpBar> ();
 			original_bird_x = bird.transform.position.x;
 			current_dino_x = gameObject.transform.position.x;
+
 		} else {
 
 			// Set animation for the main menu
@@ -205,8 +207,6 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(collisionInfo.name == "pit(Clone)")
 		{
-			Debug.Log("Here");
-
 			// Activate the child collider
 			foreach (Transform child in collisionInfo.transform) {
 				child.gameObject.SetActive(true);

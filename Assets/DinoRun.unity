@@ -3651,6 +3651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e1c72445f590a4cb6e7916d7651d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fillAmount: .00999999978
+  decreaseAmount: .00499999989
 --- !u!114 &747524432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13224,6 +13226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   touchcontrols: {fileID: 0}
   gameOverScreen: {fileID: 634403118}
+  powerUpBar: {fileID: 747524429}
   player: {fileID: 1327981223}
   skin: {fileID: 11400000, guid: 9a248991f18c3ed4aa9c2932789e6452, type: 2}
   deathPositionX: -2.75399995

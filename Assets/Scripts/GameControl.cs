@@ -6,6 +6,7 @@ public class GameControl : MonoBehaviour {
 
 	public GameObject touchcontrols;
 	public GameObject gameOverScreen;
+	public GameObject powerUpBar;
 	public Transform player;
 	public GUISkin skin;
 	public float deathPositionX = -2.754f;
@@ -17,6 +18,7 @@ public class GameControl : MonoBehaviour {
 	public Sprite triceraJump;
 	public RuntimeAnimatorController triceraController;
 	Countdown gameCountdown;
+
 
 	public bool isGameOver = false;
 	public Text guiText;
@@ -34,6 +36,12 @@ public class GameControl : MonoBehaviour {
 			player.GetComponent<PlayerController>().dinoType = PlayerController.DinoType.Triceratops;
 			player.GetComponent<PlayerController>().defaultSprite = tricera;
 			player.GetComponent<PlayerController>().jump = triceraJump;
+
+			// 30% of raptor fillAmount
+			powerUpBar.GetComponent<PowerUpBar>().fillAmount = 0.003f;
+				
+			// 40% of raptor decreaseAmount
+			powerUpBar.GetComponent<PowerUpBar>().decreaseAmount = 0.002f;
 
 			Vector2 offset = new Vector2(0.07017317f, -0.151162f);
 			Vector2 size = new Vector2(0.4421697f, 0.3538122f);

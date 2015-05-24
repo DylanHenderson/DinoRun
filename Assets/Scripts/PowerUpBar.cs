@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class PowerUpBar : MonoBehaviour {
 
 	Image myImage;
+	public float fillAmount = 0.01f;
+	public float decreaseAmount = 0.005f;
 	// Use this for initialization
 
 	private bool usePower = false;
@@ -29,7 +31,7 @@ public class PowerUpBar : MonoBehaviour {
 			//ready for powerup
 		} 
 		else {
-			myImage.fillAmount += 0.01f;
+			myImage.fillAmount += fillAmount;
 		}
 
 	}
@@ -58,7 +60,7 @@ public class PowerUpBar : MonoBehaviour {
 			CancelInvoke("decreasePower");
 			InvokeRepeating ("increasePower",0.5f,0.5f);
 		} else {
-			myImage.fillAmount -= 0.005f;
+			myImage.fillAmount -= decreaseAmount;
 		}
 		
 	}
