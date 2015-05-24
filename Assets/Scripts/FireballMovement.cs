@@ -31,6 +31,9 @@ public class FireballMovement : MonoBehaviour {
 		if (explosion.name != "snow_explode") {
 			spawnObstacles sn = spawner.GetComponent<spawnObstacles> ();
 			sn.spawnFire ();
+		} else {
+			spawnObstacles sn = spawner.GetComponent<spawnObstacles> ();
+			sn.spawnIce ();
 		}
 		
 	}
