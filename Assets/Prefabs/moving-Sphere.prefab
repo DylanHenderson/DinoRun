@@ -59,6 +59,13 @@ MonoBehaviour:
   tree_prefab: {fileID: 0}
   pit: {fileID: 0}
   bush_prefab: {fileID: 0}
+  fire_prefab: {fileID: 0}
+  ice_rock_prefab: {fileID: 0}
+  ice_tree_prefab: {fileID: 0}
+  ice_pit: {fileID: 0}
+  ice_bush_prefab: {fileID: 0}
+  ice_snow_prefab: {fileID: 0}
+  iceWorld: 0
   world: {fileID: 453636}
   x_spawn_position: 3.205652
   y_spawn_position: .670000017
@@ -80,6 +87,8 @@ MonoBehaviour:
   rotating: 1
   doom: 0
   planet: {fileID: 0}
+  iceDoomWave: {fileID: 0}
+  originalCameraPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &21247400
 SpriteRenderer:
   m_ObjectHideFlags: 1
