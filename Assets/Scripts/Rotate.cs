@@ -11,10 +11,14 @@ public class Rotate : MonoBehaviour {
 	public bool doom = false;
 	public GameObject planet;
 	public GameObject iceDoomWave;
+	public Vector3 originalCameraPosition;
 
 	private float previous_speed = 5;
+
 	// Use this for initialization
 	void Start () {
+		
+		originalCameraPosition = Camera.main.transform.position;
 		InvokeRepeating ("increaseSpeed",time_to_increase,time_to_increase);
 		Invoke ("setOriginal", 5);
 	}
@@ -28,6 +32,20 @@ public class Rotate : MonoBehaviour {
 		} else if(rotating && doom) {
 			transform.Rotate (Vector3.forward * rotate_speed, Space.Self);
 			previous_speed = rotate_speed;
+		}
+
+		// The faster the doom the faster the screenshake
+		if(doom && rotate_speed < 0.05f)
+		{
+			float quakeAmt = Random.value * rotate_speed * 2 - rotate_speed;
+			Vector3 pp =  Camera.main.transform.position;
+			pp.x += quakeAmt/2; 
+			pp.y += quakeAmt/2; 
+			Camera.main.transform.position = pp;
+
+		}else if(doom && rotate_speed > 0.05f)
+		{
+			Camera.main.transform.position  = originalCameraPosition;
 		}
 	}
 

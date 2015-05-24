@@ -23,7 +23,6 @@ public class GameControl : MonoBehaviour {
 	public GameObject embers;
 	public GameObject snow;
 
-
 	public bool isGameOver = false;
 	public Text guiText;
 	public Text gameOverText;
