@@ -13227,6 +13227,7 @@ MonoBehaviour:
   touchcontrols: {fileID: 0}
   gameOverScreen: {fileID: 634403118}
   powerUpBar: {fileID: 747524429}
+  world: {fileID: 251836083}
   player: {fileID: 1327981223}
   skin: {fileID: 11400000, guid: 9a248991f18c3ed4aa9c2932789e6452, type: 2}
   deathPositionX: -2.75399995

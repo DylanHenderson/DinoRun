@@ -7,6 +7,7 @@ public class GameControl : MonoBehaviour {
 	public GameObject touchcontrols;
 	public GameObject gameOverScreen;
 	public GameObject powerUpBar;
+	public GameObject world;
 	public Transform player;
 	public GUISkin skin;
 	public float deathPositionX = -2.754f;
@@ -37,12 +38,13 @@ public class GameControl : MonoBehaviour {
 			player.GetComponent<PlayerController>().defaultSprite = tricera;
 			player.GetComponent<PlayerController>().jump = triceraJump;
 
-			// 30% of raptor fillAmount
-			powerUpBar.GetComponent<PowerUpBar>().fillAmount = 0.003f;
-				
-			// 40% of raptor decreaseAmount
-			powerUpBar.GetComponent<PowerUpBar>().decreaseAmount = 0.002f;
+			// Set powerbar values
+			powerUpBar.GetComponent<PowerUpBar>().fillAmount = 0.003f;			// 30% of raptor fillAmount
+			powerUpBar.GetComponent<PowerUpBar>().decreaseAmount = 0.002f;		// 40% of raptor decreaseAmount
 
+			// Set worldspeed values
+			world.GetComponent<Rotate>().speed_increase = 0.5f;					// Half the raptors speed increase
+				
 			Vector2 offset = new Vector2(0.07017317f, -0.151162f);
 			Vector2 size = new Vector2(0.4421697f, 0.3538122f);
 			player.GetComponent<BoxCollider2D>().offset = offset;
