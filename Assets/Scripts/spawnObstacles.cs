@@ -19,6 +19,7 @@ public class spawnObstacles : MonoBehaviour {
 	public bool iceWorld = false;
 
 	public Transform world;
+	public Sprite iceSprite;
 
 	public float x_spawn_position = 3.205652f;
 	public float y_spawn_position = 0.67f;
@@ -34,6 +35,7 @@ public class spawnObstacles : MonoBehaviour {
 
 	public void setIceSpawning()
 	{
+		transform.GetComponent<SpriteRenderer> ().sprite = iceSprite;
 		iceWorld = true;
 		rock_prefab = ice_rock_prefab;
 		tree_prefab = ice_tree_prefab;
