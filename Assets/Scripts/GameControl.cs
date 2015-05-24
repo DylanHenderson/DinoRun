@@ -70,6 +70,7 @@ public class GameControl : MonoBehaviour {
 		{
 			embers.SetActive(false);
 			snow.SetActive(true);
+			world.GetComponent<FireballSpawner>().setIceSpawning();
 			world.GetComponent<spawnObstacles>().setIceSpawning();
 			doom.GetComponent<Rotate>().setIceSpawning();
 		}

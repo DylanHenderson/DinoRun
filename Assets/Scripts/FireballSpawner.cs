@@ -3,6 +3,8 @@ using System.Collections;
 
 public class FireballSpawner : MonoBehaviour {
 	public GameObject fireball;
+	public GameObject snowball;
+
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("spawnFireball", 1,10);
@@ -11,6 +13,13 @@ public class FireballSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	
+	
+	public void setIceSpawning()
+	{
+		fireball = snowball;	
 	}
 
 	void spawnFireball(){

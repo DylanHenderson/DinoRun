@@ -11327,6 +11327,10 @@ Prefab:
       propertyPath: ice_snow_prefab
       value: 
       objectReference: {fileID: 100008, guid: 1dd9a5f2132814a52bfd0045ee146d2a, type: 2}
+    - target: {fileID: 11469128, guid: c16b22114d0386741ac79010bff6e078, type: 2}
+      propertyPath: snowball
+      value: 
+      objectReference: {fileID: 174078, guid: 6827ebfd1d0caea45a3db38ef96f2d61, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c16b22114d0386741ac79010bff6e078, type: 2}
   m_IsPrefabParent: 0
@@ -26882,7 +26886,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.36999989
+      value: 3.04699993
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: m_LocalPosition.z
@@ -26994,7 +26998,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5152d5a2cee3a480f85f8673b4ed17ea, type: 2}

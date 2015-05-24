@@ -24,11 +24,14 @@ public class FireballMovement : MonoBehaviour {
 	}
 
 	void explode(){
+
 		GameObject swoosh = Instantiate(explosion,explosion.transform.position,Quaternion.identity) as GameObject;
 		Destroy (swoosh, 4);
-
-		spawnObstacles sn = spawner.GetComponent<spawnObstacles> ();
-			sn.spawnFire();
+			
+		if (explosion.name != "snow_explode") {
+			spawnObstacles sn = spawner.GetComponent<spawnObstacles> ();
+			sn.spawnFire ();
+		}
 		
 	}
 	
