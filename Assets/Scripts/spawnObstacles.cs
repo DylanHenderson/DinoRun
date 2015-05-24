@@ -15,6 +15,8 @@ public class spawnObstacles : MonoBehaviour {
 	public GameObject ice_bush_prefab;
 	public GameObject ice_snow_prefab;
 
+	public bool iceWorld = false;
+
 	public Transform world;
 
 	public float x_spawn_position = 3.205652f;
@@ -31,6 +33,7 @@ public class spawnObstacles : MonoBehaviour {
 
 	public void setIceSpawning()
 	{
+		iceWorld = true;
 		rock_prefab = ice_rock_prefab;
 		tree_prefab = ice_tree_prefab;
 		pit = ice_pit;
@@ -133,11 +136,13 @@ public class spawnObstacles : MonoBehaviour {
 	}
 
 	public void spawnFire(){
-		GameObject fire = Instantiate (fire_prefab) as GameObject;
-		fire.transform.parent = world;
+		if (!iceWorld) {
+			GameObject fire = Instantiate (fire_prefab) as GameObject;
+			fire.transform.parent = world;
 		
-		//the position relative to the block that it should spawn for correct angle
-		fire.transform.position = new Vector2 (fire.transform.position.x,fire.transform.position.y);
+			//the position relative to the block that it should spawn for correct angle
+			fire.transform.position = new Vector2 (fire.transform.position.x, fire.transform.position.y);
+		}
 	}
 
 	void spawnBush(){

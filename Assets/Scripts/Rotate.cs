@@ -35,15 +35,15 @@ public class Rotate : MonoBehaviour {
 		}
 
 		// The faster the doom the faster the screenshake
-		if(doom && rotate_speed < 0.05f)
+		if(doom && (rotate_speed < 0.05f || gameObject.transform.position.x < -5f))
 		{
 			float quakeAmt = Random.value * rotate_speed * 2 - rotate_speed;
 			Vector3 pp =  Camera.main.transform.position;
-			pp.x += quakeAmt/2; 
-			pp.y += quakeAmt/2; 
+			pp.x += quakeAmt/3; 
+			pp.y += quakeAmt/3; 
 			Camera.main.transform.position = pp;
 
-		}else if(doom && rotate_speed > 0.05f)
+		}else if(doom && rotate_speed > 0.05f && gameObject.transform.position.x > -5f)
 		{
 			Camera.main.transform.position  = originalCameraPosition;
 		}

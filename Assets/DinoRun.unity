@@ -11387,6 +11387,7 @@ MonoBehaviour:
   doom: 1
   planet: {fileID: 251836083}
   iceDoomWave: {fileID: 950893991}
+  originalCameraPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &950893994
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25714,6 +25715,7 @@ MonoBehaviour:
   doom: 1
   planet: {fileID: 251836083}
   iceDoomWave: {fileID: 950893991}
+  originalCameraPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &1872713228
 SpriteRenderer:
   m_ObjectHideFlags: 0
