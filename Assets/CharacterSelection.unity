@@ -652,7 +652,7 @@ MonoBehaviour:
   planet: {fileID: 244882758}
   pauseScreen: {fileID: 582359713}
   speed: 300
-  minSwipeLength: 1
+  minSwipeLength: 100
   gameController: {fileID: 0}
   playerController: {fileID: 1327981220}
   inGame: 0

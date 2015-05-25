@@ -162,8 +162,8 @@ public class TouchScript : MonoBehaviour {
 			player.GetComponent<PlayerController>().cancelPower();
 		}else if(player.GetComponent<PlayerController>().grounded || (player.position.y > originalPositon.y && player.GetComponent<PlayerController>().collidingObject != null))
 		{
-			//player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
-			player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 6);
+			player.GetComponent<Rigidbody2D>().AddForce((planet.position - player.position).normalized * speed *-1);
+			//player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 6);
 			sound.clip = jumpSound;
 			sound.Play();
 		}
