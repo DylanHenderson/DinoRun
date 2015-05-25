@@ -6859,7 +6859,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -61.0999985, y: -64.4000015}
+  m_AnchoredPosition: {x: -80, y: -64}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &747524431
@@ -13624,7 +13624,7 @@ MonoBehaviour:
   planet: {fileID: 251836086}
   pauseScreen: {fileID: 1201396054}
   speed: 200
-  minSwipeLength: 200
+  minSwipeLength: 10
   gameController: {fileID: 1486932398}
   playerController: {fileID: 1327981220}
   inGame: 1
@@ -14790,7 +14790,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -82.6999969, y: -71.3000031}
+  m_AnchoredPosition: {x: -102, y: -71}
   m_SizeDelta: {x: 150, y: 125}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1190620345
@@ -24488,7 +24488,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -950, y: -71.3000031}
+  m_AnchoredPosition: {x: -880, y: -63}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: .5, y: .5}
 --- !u!222 &1799448951
